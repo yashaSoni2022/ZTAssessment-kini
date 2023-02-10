@@ -15,3 +15,6 @@
 body {
   min-height: 100vh;
 }
+app-side-bar{
+  margin-top: 2px;
+}

@@ -20,7 +20,7 @@
       </div>
       <div class="paragraph">
         <p class="mt-1" id="ipsum"
-          [style]="styleOne && {'font-weight':'bold'} || styleTwo && {'font-style':'italic'} || styleThree && {'text-decoration': 'underline'}">
+          [style]="styleOne && {'font-weight':'bold'} || styleTwo && {'font-style':'italic'} || styleThree && {'text-decoration': 'underline'}  || styleFour && {'text-align': 'left'} || styleFive && {'text-align': 'right'}">
           Lorem ipsum dolor sit amet , Consectetur adipiscing, elit sed do </p>
       </div>
       <div class="done">
@@ -65,9 +65,9 @@
             <img src="./assets/Icons/Line 12.png" height="20px">
             <a type="button"><img src="./assets/Icons/normal.png" height="20px"></a>
             <img src="./assets/Icons/Line 7.png" height="30px">
-            <a type="button"><img src="./assets/Icons/dash1.png" height="20px"></a>
+            <a type="button" (click)="leftText()"><img src="./assets/Icons/dash1.png" height="20px"></a>
             <img src="./assets/Icons/Line 12.png" height="20px">
-            <a type="button"><img src="./assets/Icons/dash2.png" height="20px"></a>
+            <a type="button" (click)="rightText()"><img src="./assets/Icons/dash2.png" height="20px"></a>
             <img src="./assets/Icons/Line 12.png" height="20px">
             <a type="button"><img src="./assets/Icons/icon7.png" height="30px"></a>
             <a type="button"><img src="./assets/Icons/arrow.png" height="20px"></a>

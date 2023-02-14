@@ -10,6 +10,8 @@ export class CardBoxComponent {
   styleOne: boolean = false;
   styleTwo: boolean = false;
   styleThree: boolean = false;
+  styleFour: boolean = false;
+  styleFive: boolean = false;
 
   ConditionDone1: boolean = true;
   ConditionDone2: boolean = false;
@@ -51,5 +53,18 @@ export class CardBoxComponent {
     this.styleOne = false;
     this.styleTwo = false;
     this.styleThree = true;
+  }
+  leftText() {
+    this.styleOne = false;
+    this.styleTwo = false;
+    this.styleThree = false;
+    this.styleFour = true;
+  }
+  rightText() {
+    this.styleOne = false;
+    this.styleTwo = false;
+    this.styleThree = false;
+    this.styleFour = false;
+    this.styleFive = true;
   }
 }

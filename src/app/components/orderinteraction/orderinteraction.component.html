@@ -110,7 +110,7 @@
 
 
 <!-- 2nd Screen -->
-<div class="content2" *ngIf="Condition2" ng-app="">
+<div class="content2" *ngIf="Condition2" ng-app="" cdkDropListGroup>
    <div class="card-header-1">
       <p class="header-title">ORDER-INTERACTION
          <span>QUESTION | RESPONSE | <a type="button" (click)="invisiblebox()"><img
@@ -178,7 +178,7 @@
             </li>
             <li *ngIf="choice4">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               {{textInput4}}}
+               {{textInput4}}
             </li>
          </ul>
       </div>

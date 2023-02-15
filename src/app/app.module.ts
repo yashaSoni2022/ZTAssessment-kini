@@ -17,7 +17,7 @@ import { AdminHoverCardComponent } from './components/admin-hover-card/admin-hov
     AdminHoverCardComponent,
     OrderinteractionComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -15,43 +15,44 @@
       </div>
       <div class="left">
          <ul style="list-style-type:none;">
-            <li *ngIf="delete1">
+            <li *ngIf="delete1" class="list-item">
                <img src="./assets/Icons/ellipse.png">
-               Choice 1
+               <input type="text" name="inputprompt" placeholder="Choice 1" class="inpu" [(ngModel)]="textInput1"> 
                <a (click)="deleteicon1()">
                   <img src="./assets/deletegreen.png" class="deleteicon">
                </a>
             </li>
-            <li *ngIf="delete2">
+            <li *ngIf="delete2" class="list-item">
                <img src="./assets/Icons/ellipse.png">
-               Choice 2
+               <input type="text" name="inputprompt" placeholder="Choice 2" class="inpu" [(ngModel)]="textInput2"> 
                <a (click)="deleteicon2()">
                   <img src="./assets/deletegreen.png" class="deleteicon">
                </a>
             </li>
-            <li *ngIf="delete3">
+            <li *ngIf="delete3" class="list-item">
                <img src="./assets/Icons/ellipse.png">
-               Choice 3
+               <input type="text" name="inputprompt" placeholder="Choice 3" class="inpu" [(ngModel)]="textInput"> 
                <a (click)="deleteicon3()">
                   <img src="./assets/deletegreen.png" class="deleteicon">
                </a>
             </li>
 
-            <li *ngIf="delete4">
+            <li *ngIf="delete4" class="list-item">
                <img src="./assets/Icons/ellipse.png">
-               Choice 4
+               <input type="text" name="inputprompt" placeholder="Choice 4" class="inpu" [(ngModel)]="textInput4"> 
                <a (click)="deleteicon4()">
                   <img src="./assets/deletegreen.png" class="deleteicon">
                </a>
             </li>
          </ul>
-         <a type="button" class="choice" *ngIf="choicebox" (click)="addChoice()"><img src="./assets/Icons/add.png"
-               height="12px"> Add
-            Choice</a>
+         <a type="button" class="choice" *ngIf="choicebox" (click)="addChoice()"><img src="./assets/Icons/add.png" height="12px"> Add Choice</a>
       </div>
       <div class="right">
 
       </div>
+      <a (click)="screen2()">
+         <img src="./assets/Icons/savebtn.png" class="autosave1" *ngIf="autosave" (click)="displayText()">
+      </a>
    </div>
 </div>
 
@@ -103,15 +104,13 @@
       </div>
    </div>
 </div>
-<a (click)="screen2()">
-   <img src="./assets/Vector.png" class="autosave1" *ngIf="autosave">
-</a>
+
 
 <!-- <img id="saveButton" src="assets/SaveButton.png" alt="" *ngIf="savebtn"> -->
 
 
 <!-- 2nd Screen -->
-<div class="content2" *ngIf="Condition2">
+<div class="content2" *ngIf="Condition2" ng-app="">
    <div class="card-header-1">
       <p class="header-title">ORDER-INTERACTION
          <span>QUESTION | RESPONSE | <a type="button" (click)="invisiblebox()"><img
@@ -129,19 +128,19 @@
          <ul style="list-style-type: none;">
             <li *ngIf="choice1">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 1
+               {{textInput1}}
             </li>
             <li *ngIf="choice2">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 2
+               {{textInput2}}
             </li>
             <li *ngIf="choice3">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 3
+             {{textInput}}
             </li>
             <li *ngIf="choice4">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 4
+               {{textInput4}}
             </li>
          </ul>
       </div>
@@ -167,19 +166,19 @@
          <ul style="list-style-type: none;">
             <li *ngIf="choice1">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 1
+               {{textInput1}}
             </li>
             <li *ngIf="choice2">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 2
+               {{textInput2}}
             </li>
             <li *ngIf="choice3">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 3
+               {{textInput}}
             </li>
             <li *ngIf="choice4">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 4
+               {{textInput4}}}
             </li>
          </ul>
       </div>
@@ -189,3 +188,4 @@
       </div>
    </div>
 </div>
+

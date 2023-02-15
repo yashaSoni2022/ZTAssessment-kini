@@ -28,6 +28,18 @@ export class OrderinteractionComponent {
   styleFour: boolean = false;
   styleFive: boolean = false;
 
+  public textInput: string = '';
+  public textInput1: string = '';
+  public textInput2: string = '';
+  public textInput4: string = '';
+
+  displayText() {
+    console.log(this.textInput);
+    console.log(this.textInput1);
+    console.log(this.textInput2);
+    console.log(this.textInput4);
+  }
+
   screen2(){
     this.Condition1=false;
     this.autosave=false;

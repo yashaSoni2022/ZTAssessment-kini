@@ -9,8 +9,12 @@
    <div class="card-body">
       <div class="row mt-1">
          <!-- <p> -->
-         <input type="text" name="inputprompt" placeholder="Define Prompt" class="prompt" ng-model="inputprompt"
-            [style]="styleOne && {'font-weight':'bold'} || styleTwo && {'font-style':'italic'} || styleThree && {'text-decoration': 'underline'} || styleFour && {'text-align':'left'} || styleFive && {'text-align':'right'}">
+         <input type="text" name="inputprompt" placeholder="Define Prompt" class="prompt" 
+         [class.bold-text]="styleBold"
+         [class.italic-text]="styleItalic"
+         [class.underline-text]="styleUnderline"
+         [style]="styleFour && {'text-align':'left'} || styleFive && {'text-align':'right'}">
+ 
          <!-- </p> -->
       </div>
       <div class="left">
@@ -93,9 +97,9 @@
                <img src="./assets/Icons/Line 12.png" height="20px">
                <a type="button"><img src="./assets/Icons/normal.png" height="20px"></a>
                <img src="./assets/Icons/Line 7.png" height="30px">
-               <a type="button" (click)="Dash1()"><img src="./assets/Icons/dash1.png" height="20px"></a>
+               <a type="button"><img src="./assets/Icons/dash1.png" (click)="Dash1()" height="20px"></a>
                <img src="./assets/Icons/Line 12.png" height="20px">
-               <a type="button" (click)="Dash2()"><img src="./assets/Icons/dash2.png" height="20px"></a>
+               <a type="button"><img src="./assets/Icons/dash2.png" (click)="Dash2()" height="20px"></a>
                <img src="./assets/Icons/Line 12.png" height="20px">
                <a type="button"><img src="./assets/Icons/icon7.png" height="30px"></a>
                <a type="button"><img src="./assets/Icons/arrow.png" height="20px"></a>

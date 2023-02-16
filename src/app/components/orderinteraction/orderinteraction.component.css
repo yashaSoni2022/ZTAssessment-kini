@@ -300,9 +300,39 @@ span img {
     cursor: pointer;
 }
 
+.bold-text {
+    font-weight: bold;
+}
+   
+.italic-text {
+    font-style: italic;
+}
+   
+.underline-text {
+    text-decoration: underline;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
 .inpu{
     width: 60%;
 }
+
+/* Style the placeholder text */
+.prompt::placeholder {
+    font-weight: normal; /* Default font weight */
+    font-style: normal;
+    text-decoration: none;
+  }
+  
+  /* Style the placeholder text when the input is focused */
+
 
 #saveButton {
   position: absolute;

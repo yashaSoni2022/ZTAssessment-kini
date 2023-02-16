@@ -15,16 +15,23 @@
         <a type="button" class="choice" (click)="content()"><img src="./assets/Icons/add.png" height="12px"> Add
           Choice</a>
         <div>
-          <p class="choice1"> CHOICE 1</p>
+          <ng-container *ngIf="choiceHide1"><input type="text" class="choice2" [(ngModel)]="choiceBind1"
+              (click)="choice1()" placeholder="CHOICE 1"></ng-container> &nbsp;
+          <ng-container *ngIf="choiceHide2"><input type="text" class="choice2" [(ngModel)]="choiceBind2"
+              (click)="choice2()" placeholder="CHOICE 2"></ng-container> &nbsp;
+          <ng-container *ngIf="choiceHide3"><input type="text" class="choice2" [(ngModel)]="choiceBind3"
+              (click)="choice3()" placeholder="CHOICE 3"></ng-container> &nbsp;
+          <ng-container *ngIf="choiceHide4"><input type="text" class="choice2" [(ngModel)]="choiceBind4"
+              (click)="choice4()" placeholder="CHOICE 4"></ng-container>
         </div>
       </div>
       <div class="paragraph">
         <p class="mt-1" id="ipsum"
           [style]="styleOne && {'font-weight':'bold'} || styleTwo && {'font-style':'italic'} || styleThree && {'text-decoration': 'underline'}  || styleFour && {'text-align': 'left'} || styleFive && {'text-align': 'right'}">
-          Lorem ipsum dolor sit amet , Consectetur adipiscing, elit sed do </p>
+          Lorem ipsum dolor sit amet , Consectetur adipiscing, elit sed do</p>
       </div>
       <div class="done">
-        <img src="./assets/done.png">
+        <a type="button" (click)="content2()"><img src="./assets/done.png"></a>
       </div>
     </div>
   </div>
@@ -90,7 +97,19 @@
     <div class="card-body">
       <div class="row choices">
         <div>
-          <a type="button" class="choice2" (click)="content2()"> CHOICE 1</a>
+          <ng-container *ngIf="choiceHide1"><input type="text" class="choice2" placeholder="CHOICE 1"
+              [(ngModel)]="choiceBind1"></ng-container>
+          &nbsp;
+          <ng-container *ngIf="choiceHide2"><input type="text" class="choice2" placeholder="CHOICE 2"
+              [(ngModel)]="choiceBind2"></ng-container>
+          &nbsp;
+          <ng-container *ngIf="choiceHide3"><input type="text" class="choice2" placeholder="CHOICE 3"
+              [(ngModel)]="choiceBind3"></ng-container>
+          &nbsp;
+          <ng-container *ngIf="choiceHide4"><input type="text" class="choice2" placeholder="CHOICE 4"
+              [(ngModel)]="choiceBind4"></ng-container>
+          &nbsp;
+
         </div>
       </div>
       <div class="paragraph">
@@ -105,7 +124,7 @@
         <p>Lorem ipsum dolor sit amet , Consectetur adipiscing, elit sed do </p>
       </div>
       <div class="done-btn">
-        <img src="./assets/done.png">
+        <a type="button" (click)="content3()"><img src="./assets/done.png"></a>
       </div>
     </div>
 
@@ -128,14 +147,26 @@
     <div class="card-body">
       <div class="row choices">
         <div>
-          <p class="choice2"> CHOICE 1</p>
+
+          <ng-container *ngIf="choiceHide1"><input type="text" class="choice2" placeholder="CHOICE 1"
+              [(ngModel)]="choiceBind1"></ng-container>
+          &nbsp;&nbsp;
+          <ng-container *ngIf="choiceHide2"><input type="text" class="choice2" placeholder="CHOICE 2"
+              [(ngModel)]="choiceBind2"></ng-container>
+          &nbsp;&nbsp;
+          <ng-container *ngIf="choiceHide3"><input type="text" class="choice2" placeholder="CHOICE 3"
+              [(ngModel)]="choiceBind3"></ng-container>
+          &nbsp;&nbsp;
+          <ng-container *ngIf="choiceHide4"><input type="text" class="choice2" placeholder="CHOICE 4"
+              [(ngModel)]="choiceBind4"></ng-container>
+          &nbsp;&nbsp;
         </div>
       </div>
       <div class="para">
         <p>Lorem ipsum dolor sit amet , Consectetur adipiscing, elit sed do </p>
       </div>
       <div class="done-btn2">
-        <img src="./assets/done.png">
+        <a type="button"><img src="./assets/done.png"></a>
       </div>
     </div>
 

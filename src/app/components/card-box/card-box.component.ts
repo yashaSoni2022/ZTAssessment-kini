@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class CardBoxComponent {
 
+  choiceBind1:string ="";
+  choiceBind2:string ="";
+  choiceBind3:string ="";
+  choiceBind4:string ="";
+
   styleOne: boolean = false;
   styleTwo: boolean = false;
   styleThree: boolean = false;
@@ -18,19 +23,27 @@ export class CardBoxComponent {
   ConditionDone3: boolean = false;
   hideBottomContent: boolean = true;
 
+  choiceHide1:boolean= true;
+  choiceHide2:boolean= false;
+  choiceHide3:boolean= false;
+  choiceHide4:boolean= false;
+
   constructor() { }
 
   content() {
+    this.choiceHide1 = true;
+  }
+
+  content2() {
     this.ConditionDone1 = false;
     this.ConditionDone2 = true;
   }
 
-  content2() {
+  content3() { 
+    this.ConditionDone1 = false;
     this.ConditionDone2 = false;
     this.ConditionDone3 = true;
   }
-
-  content3() { }
 
   deleteContent() {
     this.ConditionDone1 = false;
@@ -67,4 +80,14 @@ export class CardBoxComponent {
     this.styleFour = false;
     this.styleFive = true;
   }
+  choice1(){
+    this.choiceHide2 = true;
+  }
+  choice2(){
+    this.choiceHide3 = true;
+  }
+  choice3(){
+    this.choiceHide4 = true;
+  }
+  choice4(){}
 }

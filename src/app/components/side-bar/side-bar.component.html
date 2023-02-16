@@ -1,56 +1,97 @@
 <div class="sidebarContaianer">
   <div class="sideBar">
-    <button (click)="menu()" id="items" active><img src="assets/sideBarIcons/Items.png" alt=""></button>
-    <button><img src="assets/sideBarIcons/Tests.png" alt=""></button>
-    <button><img src="assets/sideBarIcons/TestTakers.png" alt=""></button>
-    <button><img src="assets/sideBarIcons/Groups.png" alt=""></button>
-    <button><img src="assets/sideBarIcons/Deliveries.png" alt=""></button>
-    <button><img src="assets/sideBarIcons/Results.png" alt=""></button>
+    <button (click)="menu()" id="items" active>
+      <img src="assets/sideBarIcons/Items.png" alt="" />
+    </button>
+    <button><img src="assets/sideBarIcons/Tests.png" alt="" /></button>
+    <button><img src="assets/sideBarIcons/TestTakers.png" alt="" /></button>
+    <button><img src="assets/sideBarIcons/Groups.png" alt="" /></button>
+    <button><img src="assets/sideBarIcons/Deliveries.png" alt="" /></button>
+    <button><img src="assets/sideBarIcons/Results.png" alt="" /></button>
   </div>
 
   <div class="sideBar expanded" [ngStyle]="expandedSideBar" *ngIf="expanded">
     <ul>
       <div id="commonInteraction" (click)="openCommonInteraction()">
-        <p class="sideBar-headings">COMMON INTERACTION <img src="../../../assets/sideBarIcons/arrow.png"></p>
+        <p class="sideBar-headings">
+          COMMON INTERACTION
+          <img src="../../../assets/sideBarIcons/arrow.png" />
+        </p>
         <div class="commonInteractionComponents" *ngIf="commonIntrxn">
           <div>
-            <img src="../../../assets/common interaction Icons/Associate.png" alt="Associate">
-            <img src="../../../assets/common interaction Icons/Choice.png" alt="Choice">
+            <img
+              src="../../../assets/common interaction Icons/Associate.png"
+              alt="Associate"
+            />
+            <img
+              src="../../../assets/common interaction Icons/Choice.png"
+              alt="Choice"
+            />
           </div>
 
           <div>
-            <img src="../../../assets/common interaction Icons/ExtTest.png" alt="ExtTest">
-            <img src="../../../assets/common interaction Icons/FileUpload.png" alt="FileUpload">
+            <img
+              src="../../../assets/common interaction Icons/ExtTest.png"
+              alt="ExtTest"
+            />
+            <img
+              src="../../../assets/common interaction Icons/FileUpload.png"
+              alt="FileUpload"
+            />
           </div>
           <div>
-            <img src="../../../assets/common interaction Icons/GapMatch.png" alt="GapMatch.png">
-            <img src="../../../assets/common interaction Icons/HotText.png" alt="HotText">
+            <img
+              src="../../../assets/common interaction Icons/GapMatch.png"
+              alt="GapMatch.png"
+            />
+            <img
+              src="../../../assets/common interaction Icons/HotText.png"
+              alt="HotText"
+            />
           </div>
 
           <div>
-            <img src="../../../assets/common interaction Icons/Match.png" alt="Match">
-            <img src="../../../assets/common interaction Icons/Media.png" alt="Media">
+            <img
+              src="../../../assets/common interaction Icons/Match.png"
+              alt="Match"
+            />
+            <img
+              src="../../../assets/common interaction Icons/Media.png"
+              alt="Media"
+            />
           </div>
-
-
-
           <div>
-            <img src="../../../assets/common interaction Icons/Order.png" alt="Order">
-            <img src="../../../assets/common interaction Icons/Slider.png" alt="Slider">
+            <img
+              src="../../../assets/common interaction Icons/Order.png"
+              alt="Order"
+            />
+            <img
+              src="../../../assets/common interaction Icons/Slider.png"
+              alt="Slider"
+            />
           </div>
         </div>
       </div>
-      <hr>
+      <hr />
       <div id="inlineInteraction">
-        <p class="sideBar-headings">INLINE INTERACTION <img src="../../../assets/sideBarIcons/arrow.png"></p>
+        <p class="sideBar-headings">
+          INLINE INTERACTION
+          <img src="../../../assets/sideBarIcons/arrow.png" />
+        </p>
       </div>
-      <hr>
+      <hr />
       <div id="graphicInteraction">
-        <p class="sideBar-headings">GRAPHIC INTERACTION <img src="../../../assets/sideBarIcons/arrow.png"></p>
+        <p class="sideBar-headings">
+          GRAPHIC INTERACTION
+          <img src="../../../assets/sideBarIcons/arrow.png" />
+        </p>
       </div>
-      <hr>
+      <hr />
       <div id="customInteraction">
-        <p class="sideBar-headings">CUSTOM INTERACTION <img src="../../../assets/sideBarIcons/arrow.png"></p>
+        <p class="sideBar-headings">
+          CUSTOM INTERACTION
+          <img src="../../../assets/sideBarIcons/arrow.png" />
+        </p>
       </div>
     </ul>
   </div>

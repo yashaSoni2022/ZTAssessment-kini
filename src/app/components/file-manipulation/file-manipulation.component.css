@@ -1,0 +1,289 @@
+.main-box {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 903px;
+  height: 218px;
+  left: 448px;
+  top: 235px;
+
+  background: #ffffff;
+  border: 3px solid #0c747e;
+  border-radius: 20px;
+}
+
+.main-box2 {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 903px;
+  height: 166px;
+  left: 448px;
+  top: 235px;
+
+  background: #ffffff;
+  border: 3px solid #0c747e;
+  border-radius: 20px;
+}
+
+.btn-save {
+  position: absolute;
+  left: 95.35%;
+  right: 7.6%;
+  bottom: 7.6%;
+  cursor: pointer;
+}
+
+.header-box {
+  position: absolute;
+  width: 903px;
+  height: 35px;
+  left: 448px;
+  top: 235px;
+
+  background: #0c747e;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.box-title {
+  position: absolute;
+  width: 177px;
+  height: 32px;
+  margin: 2px 0 0 20px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 32px;
+  /* identical to box height, or 200% */
+
+  letter-spacing: 0.5px;
+
+  color: #ffffff;
+}
+
+.question-opt {
+  position: absolute;
+  width: 76px;
+  height: 33px;
+  left: 709px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 32px;
+  top: 2px;
+  /* or 267% */
+
+  letter-spacing: 0.5px;
+
+  color: #ffffff;
+}
+
+.vert-line {
+  position: absolute;
+  width: 20.48px;
+  height: 0px;
+  left: 770px;
+  top: 17px;
+
+  border: 0.5px solid #ffffff;
+  transform: rotate(90deg);
+}
+
+.vert-line2 {
+  position: absolute;
+  width: 20.48px;
+  height: 0px;
+  left: 853px;
+  top: 17px;
+
+  border: 0.5px solid #ffffff;
+  transform: rotate(90deg);
+}
+
+.response-opt {
+  position: absolute;
+  width: 69px;
+  height: 33px;
+  left: 790px;
+  top: 2px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 32px;
+  /* or 267% */
+
+  letter-spacing: 0.5px;
+
+  color: #ffffff;
+}
+
+.delete-box {
+  cursor: pointer;
+  position: absolute;
+  left: 96.57%;
+  right: 7.11%;
+  top: 15%;
+  bottom: 74.74%;
+}
+
+.prompt {
+  box-sizing: border-box;
+  color: #0c747e;
+  position: absolute;
+  width: 848px;
+  height: 31px;
+  left: 475px;
+  top: 290px;
+
+  border: 2px solid #0c747e;
+}
+
+::placeholder {
+  color: #0c747e;
+}
+
+.input1::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.browse-btn {
+  cursor: pointer;
+  position: absolute;
+  left: 475px;
+  top: 345px;
+}
+
+.browse-btn2 {
+  position: absolute;
+  width: 146px;
+  height: 41.24px;
+  left: 467px;
+  top: 297px;
+
+  background: #0c747e;
+  border-radius: 10px;
+}
+
+.selected-files {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 443px;
+  height: 40.26px;
+  left: 638px;
+  top: 346px;
+
+  background: #ffffff;
+  border: 2px solid #0c747e;
+  border-radius: 10px;
+}
+
+.selected-files2 {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 443px;
+  height: 40.26px;
+  left: 630px;
+  top: 298px;
+
+  background: #ffffff;
+  border: 2px solid #0c747e;
+  border-radius: 10px;
+}
+
+.sel-data-label {
+  position: absolute;
+  width: 175px;
+  height: 27px;
+  margin: 5px 0 0 20px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 150%;
+  /* or 30px */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #0c747e;
+}
+
+/* Text manipulation menu & symbols: */
+
+.card-body {
+  width: 480px;
+  height: 135px;
+}
+
+.card-bottom {
+  margin-top: 20px;
+  margin-left: 448px;
+  position: absolute;
+  top: 476px;
+  height: 100px;
+  border-radius: 15px;
+  border: 2.2px solid #0c747e;
+}
+
+.text-icons {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0c747e;
+  margin: 0 0 0 20px;
+}
+
+.text-icons span img {
+  margin-left: 20rem;
+  font-size: 12px;
+}
+
+.symbol img {
+  margin-left: 9.5px;
+  margin-bottom: 30px;
+  position: relative;
+  bottom: 5px;
+}
+
+.texts {
+  position: relative;
+  bottom: 10px;
+}
+
+.symbol {
+  position: relative;
+  bottom: 5px;
+}
+
+#cross {
+  position: absolute;
+  top: 30px;
+  left: 23%;
+}
+
+/* Text options manipulation: */
+
+.bold-text {
+  font-weight: bold;
+  color: #0c747e;
+}
+
+.italic-text {
+  font-style: italic;
+  color: #0c747e;
+}
+
+.underline-text {
+  text-decoration: underline;
+  color: #0c747e;
+}

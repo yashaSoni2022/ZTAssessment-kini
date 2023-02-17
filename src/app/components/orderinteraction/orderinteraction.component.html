@@ -1,48 +1,35 @@
 <!-- 1st Screen -->
 <div class="container" *ngIf="Condition1" ng-app="">
-   <div class="card" style="width: 45rem;"></div>
-   <div class="card-header">
-      <p class="header-title">ORDER-INTERACTION
-         <span>QUESTION | RESPONSE | <a type="button" (click)="dismissbox()"><img src="./assets/delete.png"></a></span>
-      </p>
-   </div>
-   <div class="card-body">
-      <div class="row mt-1">
-         <!-- <p> -->
-         <input type="text" name="inputprompt" class="prompt" placeholder="Define prompt"
-         #text 
-         (keyup)="getValue(text.value)"
-         onfocus="this.placeholder = ''"
-         [class.bold-text]="styleBold"
-         [class.italic-text]="styleItalic"
-         [class.underline-text]="styleUnderline"
-         [style]="styleFour && {'text-align':'left'} || styleFive && {'text-align':'right'}">
- 
-         <!-- </p> -->
-      </div>
-      <div class="left">
-         <ul style="list-style-type:none;">
-            <li *ngIf="delete1" class="list-item">
-               <img src="./assets/Icons/ellipse.png">
-               <input type="text" name="inputprompt" placeholder="Choice 1" class="inpu" [(ngModel)]="textInput1"> 
-               <a (click)="deleteicon1()">
-                  <img src="./assets/deletegreen.png" class="deleteicon">
-               </a>
-            </li>
-            <li *ngIf="delete2" class="list-item">
-               <img src="./assets/Icons/ellipse.png">
-               <input type="text" name="inputprompt" placeholder="Choice 2" class="inpu" [(ngModel)]="textInput2"> 
-               <a (click)="deleteicon2()">
-                  <img src="./assets/deletegreen.png" class="deleteicon">
-               </a>
-            </li>
-            <li *ngIf="delete3" class="list-item">
-               <img src="./assets/Icons/ellipse.png">
-               <input type="text" name="inputprompt" placeholder="Choice 3" class="inpu" [(ngModel)]="textInput"> 
-               <a (click)="deleteicon3()">
-                  <img src="./assets/deletegreen.png" class="deleteicon">
-               </a>
-            </li>
+  <div class="card" style="width: 45rem"></div>
+  <div class="card-header">
+    <p class="header-title">
+      ORDER-INTERACTION
+      <span
+        >QUESTION | RESPONSE |
+        <a type="button" (click)="dismissbox()"
+          ><img src="./assets/delete.png" /></a
+      ></span>
+    </p>
+  </div>
+  <div class="card-body">
+    <div class="row mt-1">
+      <!-- <p> -->
+      <input
+        type="text"
+        name="inputprompt"
+        class="prompt"
+        placeholder="Define prompt"
+        #text
+        (keyup)="getValue(text.value)"
+        onfocus="this.placeholder = ''"
+        [class.bold-text]="styleBold"
+        [class.italic-text]="styleItalic"
+        [class.underline-text]="styleUnderline"
+        [style]="
+          (styleFour && { 'text-align': 'left' }) ||
+          (styleFive && { 'text-align': 'right' })
+        "
+      />
 
       <!-- </p> -->
     </div>
@@ -280,6 +267,40 @@
     <p class="header-title">ITEM 1</p>
   </div>
 
-      </div>
-   </div>
+  <div class="card-body">
+    <div class="left-1">
+      <ul style="list-style-type: none">
+        <li *ngIf="choice1">
+          <img
+            src="./assets/Icons/shadedrectangle.png"
+            class="shadedrectangle"
+          />
+          {{ textInput1 }}
+        </li>
+        <li *ngIf="choice2">
+          <img
+            src="./assets/Icons/shadedrectangle.png"
+            class="shadedrectangle"
+          />
+          {{ textInput2 }}
+        </li>
+        <li *ngIf="choice3">
+          <img
+            src="./assets/Icons/shadedrectangle.png"
+            class="shadedrectangle"
+          />
+          {{ textInput }}
+        </li>
+        <li *ngIf="choice4">
+          <img
+            src="./assets/Icons/shadedrectangle.png"
+            class="shadedrectangle"
+          />
+          {{ textInput4 }}
+        </li>
+      </ul>
+    </div>
+    <img src="./assets/Icons/arrowleft.png" class="arrowleft" />
+    <div class="right-1"></div>
+  </div>
 </div>

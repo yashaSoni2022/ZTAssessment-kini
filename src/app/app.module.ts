@@ -21,17 +21,17 @@ import { FileManipulationComponent } from './components/file-manipulation/file-m
     OrderinteractionComponent,
     FileManipulationComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule.forRoot([
-      {
-        path: 'file-manipulation',
-        component: FileManipulationComponent,
-      },
-      { path: 'order-interaction', component: OrderinteractionComponent },
-    ]),
-  ],
+  // imports: [
+  //   BrowserModule,
+  //   AppRoutingModule,
+  //   RouterModule.forRoot([
+  //     {
+  //       path: 'file-manipulation',
+  //       component: FileManipulationComponent,
+  //     },
+  //     { path: 'order-interaction', component: OrderinteractionComponent },
+  //   ]),
+  // ],
   imports: [BrowserModule, AppRoutingModule, FormsModule,DragDropModule],
   providers: [],
   bootstrap: [AppComponent],

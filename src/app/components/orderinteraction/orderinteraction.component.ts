@@ -18,26 +18,38 @@ export class OrderinteractionComponent {
   delete4: boolean = false;
   Condition2: boolean = false;
   Condition3: boolean = false;
-  choice1: boolean = true;
-  choice2: boolean = true;
-  choice3: boolean = true;
-  choice4: boolean = false;
-  styleOne: boolean = false;
-  styleTwo: boolean = false;
-  styleThree: boolean = false;
+  choice1:boolean=true;
+  choice2:boolean=true;
+  choice3:boolean=true;
+  choice4:boolean=false;
+  styleBold: boolean = false;
+  styleItalic: boolean = false;
+  styleUnderline: boolean = false;
   styleFour: boolean = false;
   styleFive: boolean = false;
 
-  screen2() {
-    this.Condition1 = false;
-    this.autosave = false;
-    this.delete1 = false;
-    this.delete2 = false;
-    this.delete3 = false;
-    this.bottomSymbol = false;
-    this.Condition2 = true;
-    this.savebtn = false;
-    this.savebtn1 = true;
+  public textInput: string = '';
+  public textInput1: string = '';
+  public textInput2: string = '';
+  public textInput4: string = '';
+
+  displayText() {
+    console.log(this.textInput);
+    console.log(this.textInput1);
+    console.log(this.textInput2);
+    console.log(this.textInput4);
+  }
+
+  screen2(){
+    this.Condition1=false;
+    this.autosave=false;
+    this.delete1=false;
+    this.delete2=false;
+    this.delete3=false;
+    this.bottomSymbol=false;
+    this.Condition2=true;
+    this.savebtn=false;
+    this.savebtn1=true;
   }
 
   screen3() {
@@ -87,32 +99,22 @@ export class OrderinteractionComponent {
   }
 
   boldText() {
-    this.styleOne = true;
+    this.styleBold = !this.styleBold;
   }
-
+ 
   italicText() {
-    this.styleTwo = true;
-    this.styleOne = false;
+    this.styleItalic = !this.styleItalic;
   }
-
+ 
   underlineText() {
-    this.styleThree = true;
-    this.styleTwo = false;
-    this.styleOne = false;
+    this.styleUnderline = !this.styleUnderline;
+  }
+  
+  Dash1(){
+    this.styleFour=true;
   }
 
-  Dash1() {
-    this.styleFour = true;
-    this.styleThree = false;
-    this.styleTwo = false;
-    this.styleOne = false;
-  }
-
-  Dash2() {
-    this.styleFive = true;
-    this.styleFour = false;
-    this.styleThree = false;
-    this.styleTwo = false;
-    this.styleOne = false;
+  Dash2(){
+    this.styleFive=true;
   }
 }

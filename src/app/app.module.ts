@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,7 @@ import { FileManipulationComponent } from './components/file-manipulation/file-m
       { path: 'order-interaction', component: OrderinteractionComponent },
     ]),
   ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule,DragDropModule],
   providers: [],
   bootstrap: [AppComponent],
 })

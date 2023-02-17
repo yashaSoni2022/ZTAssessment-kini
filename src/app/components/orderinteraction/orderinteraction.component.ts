@@ -3,19 +3,19 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-orderinteraction',
   templateUrl: './orderinteraction.component.html',
-  styleUrls: ['./orderinteraction.component.css']
+  styleUrls: ['./orderinteraction.component.css'],
 })
 export class OrderinteractionComponent {
-  savebtn:boolean=true;
-  savebtn1:boolean=false;
+  savebtn: boolean = true;
+  savebtn1: boolean = false;
   Condition1: boolean = true;
   autosave: boolean = true;
-  bottomSymbol:boolean=true;
-  delete1:boolean=true;
-  delete2:boolean=true;
-  delete3:boolean=true;
-  choicebox:boolean=true;
-  delete4:boolean=false;
+  bottomSymbol: boolean = true;
+  delete1: boolean = true;
+  delete2: boolean = true;
+  delete3: boolean = true;
+  choicebox: boolean = true;
+  delete4: boolean = false;
   Condition2: boolean = false;
   Condition3: boolean = false;
   choice1:boolean=true;
@@ -52,50 +52,50 @@ export class OrderinteractionComponent {
     this.savebtn1=true;
   }
 
-  screen3(){
-    this.Condition2=false;
-    this.Condition3=true;
-    this.savebtn=false;
-    this.savebtn1=true;
+  screen3() {
+    this.Condition2 = false;
+    this.Condition3 = true;
+    this.savebtn = false;
+    this.savebtn1 = true;
   }
 
-  invisiblebox(){
-    this.Condition2=false;
+  invisiblebox() {
+    this.Condition2 = false;
   }
 
-  deleteicon1(){
-    this.delete1=false;
-    this.choice1=false;
+  deleteicon1() {
+    this.delete1 = false;
+    this.choice1 = false;
   }
 
-  deleteicon2(){
-    this.delete2=false;
-    this.choice2=false;
+  deleteicon2() {
+    this.delete2 = false;
+    this.choice2 = false;
   }
 
-  deleteicon3(){
-    this.delete3=false;
-    this.choice3=false;
+  deleteicon3() {
+    this.delete3 = false;
+    this.choice3 = false;
   }
 
-  deleteicon4(){
-    this.delete4=false;
-    this.choice4=false;
+  deleteicon4() {
+    this.delete4 = false;
+    this.choice4 = false;
   }
 
-  dismiss(){
-    this.bottomSymbol=false;
+  dismiss() {
+    this.bottomSymbol = false;
   }
 
-  dismissbox(){
-    this.Condition1=false;
-    this.autosave=false;
+  dismissbox() {
+    this.Condition1 = false;
+    this.autosave = false;
   }
 
-  addChoice(){
-      this.delete4=true;
-      this.choicebox=false;
-      this.choice4=true;
+  addChoice() {
+    this.delete4 = true;
+    this.choicebox = false;
+    this.choice4 = true;
   }
 
   boldText() {

@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <body>
+    <app-header></app-header>
+    <app-side-bar></app-side-bar>
+    <!-- **interactions component go here -->
 
-<body>
+    <router-outlet></router-outlet>
+    <!-- <app-orderinteraction></app-orderinteraction> -->
+    <!-- <app-file-manipulation></app-file-manipulation> -->
 
-  <app-header></app-header>
-  <app-side-bar></app-side-bar>
-  <!-- **interactions component go here -->
+    <!-- interactions component go here  -->
+    <div class="options-container">
+      <div id="printViewBurger">
+        <div>
+          <img class="options" src="assets/view.png" alt="" />
+          <img class="options" src="assets/printer.png" alt="" />
+          <img
+            (click)="openBurgerMenu()"
+            class="options"
+            src="assets/burger.png"
+            alt=""
+          />
+        </div>
 
-  <app-orderinteraction></app-orderinteraction>
-
-  <!-- interactions component go here  -->
-  <div class="options-container">
-    <div id="printViewBurger">
-      <div>
-        <img class="options" src="assets/view.png" alt="">
-        <img class="options" src="assets/printer.png" alt="">
-        <img (click)="openBurgerMenu()" class="options" src="assets/burger.png" alt="">
+        <app-admin-hover-card></app-admin-hover-card>
       </div>
-
-      <app-admin-hover-card></app-admin-hover-card>
-
     </div>
-
-
   </div>
   <!-- <img id="saveButton" src="assets/SaveButton.png" alt=""> -->
 </body>
-
 </html>

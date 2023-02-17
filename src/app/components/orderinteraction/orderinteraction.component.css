@@ -325,10 +325,13 @@ span img {
 }
 
 /* Style the placeholder text */
-.prompt::placeholder {
-    font-weight: normal; /* Default font weight */
-    font-style: normal;
-    text-decoration: none;
+::placeholder {
+    color: #0c747e;
+  }
+  
+  .input1::-webkit-input-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
   }
   
   /* Style the placeholder text when the input is focused */

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 
 @Component({
   selector: 'app-orderinteraction',
@@ -27,11 +27,16 @@ export class OrderinteractionComponent {
   styleUnderline: boolean = false;
   styleFour: boolean = false;
   styleFive: boolean = false;
+  value: string = '';
 
   public textInput: string = '';
   public textInput1: string = '';
   public textInput2: string = '';
   public textInput4: string = '';
+
+  getValue(val: string) {
+    this.value = val;
+  }
 
   displayText() {
     console.log(this.textInput);
@@ -99,22 +104,32 @@ export class OrderinteractionComponent {
   }
 
   boldText() {
-    this.styleBold = !this.styleBold;
+    if (this.value){
+      this.styleBold = !this.styleBold;
+    }
   }
  
   italicText() {
-    this.styleItalic = !this.styleItalic;
+    if(this.value){
+      this.styleItalic = !this.styleItalic;
+    }
   }
  
   underlineText() {
-    this.styleUnderline = !this.styleUnderline;
+    if(this.value){
+      this.styleUnderline = !this.styleUnderline;
+    }
   }
   
   Dash1(){
-    this.styleFour=true;
+    if(this.value){
+     this.styleFour=true;
+    }
   }
 
   Dash2(){
-    this.styleFive=true;
+    if(this.value){
+      this.styleFive=true;
+    }
   }
 }

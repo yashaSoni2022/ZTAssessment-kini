@@ -9,7 +9,10 @@
    <div class="card-body">
       <div class="row mt-1">
          <!-- <p> -->
-         <input type="text" name="inputprompt" placeholder="Define Prompt" class="prompt" 
+         <input type="text" name="inputprompt" class="prompt" placeholder="Define prompt"
+         #text 
+         (keyup)="getValue(text.value)"
+         onfocus="this.placeholder = ''"
          [class.bold-text]="styleBold"
          [class.italic-text]="styleItalic"
          [class.underline-text]="styleUnderline"

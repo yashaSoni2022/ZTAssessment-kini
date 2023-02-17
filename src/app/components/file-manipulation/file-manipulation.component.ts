@@ -29,8 +29,21 @@ export class FileManipulationComponent {
   styleFour: boolean = false;
   styleFive: boolean = false;
   value: string = '';
+  deleteTextDecoration() {
+    this.styleBold = false;
+    this.styleItalic = false;
+    this.styleUnderline = false;
+  }
   getValue(val: string) {
     this.value = val;
+    if (!this.value) this.deleteTextDecoration();
+  }
+
+  browseFiles() {
+    let input = document.createElement('input');
+    input.type = 'file';
+    input.onchange = (_) => {};
+    input.click();
   }
 
   screen2() {
@@ -51,6 +64,8 @@ export class FileManipulationComponent {
 
   dismissbox() {
     this.Condition1 = false;
+    this.Condition2 = false;
+    this.Condition3 = false;
     this.autosave = false;
   }
 
@@ -64,9 +79,5 @@ export class FileManipulationComponent {
 
   underlineText() {
     if (this.value) this.styleUnderline = !this.styleUnderline;
-  }
-
-  browseFiles() {
-    console.log('Browse files');
   }
 }

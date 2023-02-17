@@ -105,20 +105,17 @@
 
 .response-opt {
   position: absolute;
-  width: 69px;
+  width: 80px;
   height: 33px;
-  left: 790px;
+  left: 786px;
   top: 2px;
 
   font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: bold;
+  font-weight: 600;
+  font-size: 13.5px;
   line-height: 32px;
-  /* or 267% */
-
   letter-spacing: 0.5px;
-
   color: #ffffff;
 }
 
@@ -141,6 +138,14 @@
   top: 290px;
 
   border: 2px solid #0c747e;
+}
+
+/* Defines the same text color as the typed one when pasted from a pop up window that stores last used text: */
+input[type="text"]:focus:focus-visible {
+  -webkit-text-fill-color: #0c747e;
+
+  outline: #0c747e;
+  border: 3px solid #0c747e;
 }
 
 ::placeholder {
@@ -285,5 +290,9 @@
 
 .underline-text {
   text-decoration: underline;
+  color: #0c747e;
+}
+
+-webkit-autofill {
   color: #0c747e;
 }

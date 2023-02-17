@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-orderinteraction',
@@ -22,11 +22,28 @@ export class OrderinteractionComponent {
   choice2: boolean = true;
   choice3: boolean = true;
   choice4: boolean = false;
-  styleOne: boolean = false;
-  styleTwo: boolean = false;
-  styleThree: boolean = false;
+  styleBold: boolean = false;
+  styleItalic: boolean = false;
+  styleUnderline: boolean = false;
   styleFour: boolean = false;
   styleFive: boolean = false;
+  value: string = '';
+
+  public textInput: string = '';
+  public textInput1: string = '';
+  public textInput2: string = '';
+  public textInput4: string = '';
+
+  getValue(val: string) {
+    this.value = val;
+  }
+
+  displayText() {
+    console.log(this.textInput);
+    console.log(this.textInput1);
+    console.log(this.textInput2);
+    console.log(this.textInput4);
+  }
 
   screen2() {
     this.Condition1 = false;
@@ -87,32 +104,32 @@ export class OrderinteractionComponent {
   }
 
   boldText() {
-    this.styleOne = true;
+    if (this.value) {
+      this.styleBold = !this.styleBold;
+    }
   }
 
   italicText() {
-    this.styleTwo = true;
-    this.styleOne = false;
+    if (this.value) {
+      this.styleItalic = !this.styleItalic;
+    }
   }
 
   underlineText() {
-    this.styleThree = true;
-    this.styleTwo = false;
-    this.styleOne = false;
+    if (this.value) {
+      this.styleUnderline = !this.styleUnderline;
+    }
   }
 
   Dash1() {
-    this.styleFour = true;
-    this.styleThree = false;
-    this.styleTwo = false;
-    this.styleOne = false;
+    if (this.value) {
+      this.styleFour = true;
+    }
   }
 
   Dash2() {
-    this.styleFive = true;
-    this.styleFour = false;
-    this.styleThree = false;
-    this.styleTwo = false;
-    this.styleOne = false;
+    if (this.value) {
+      this.styleFive = true;
+    }
   }
 }

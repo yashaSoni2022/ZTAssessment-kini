@@ -7,10 +7,18 @@ import { Component } from '@angular/core';
 })
 export class CardBoxComponent {
 
-  choiceBind1:string ="";
-  choiceBind2:string ="";
-  choiceBind3:string ="";
-  choiceBind4:string ="";
+  InputArray: any[] = [];
+
+  choiceAdd:string = "";
+
+  // choiceBind1: string = "";
+  // choiceBind2: string = "";
+  // choiceBind3: string = "";
+  // choiceBind4: string = "";
+  // choiceBind5: string = "";
+  // choiceBind6: string = "";
+  // choiceBind7: string = "";
+  // choiceBind8: string = "";
 
   styleOne: boolean = false;
   styleTwo: boolean = false;
@@ -23,10 +31,14 @@ export class CardBoxComponent {
   ConditionDone3: boolean = false;
   hideBottomContent: boolean = true;
 
-  choiceHide1:boolean= true;
-  choiceHide2:boolean= false;
-  choiceHide3:boolean= false;
-  choiceHide4:boolean= false;
+  choiceHide1: boolean = false;
+  choiceHide2: boolean = false;
+  choiceHide3: boolean = false;
+  choiceHide4: boolean = false;
+  choiceHide5: boolean = false;
+  choiceHide6: boolean = false;
+  choiceHide7: boolean = false;
+  choiceHide8: boolean = false;
 
   constructor() { }
 
@@ -39,7 +51,7 @@ export class CardBoxComponent {
     this.ConditionDone2 = true;
   }
 
-  content3() { 
+  content3() {
     this.ConditionDone1 = false;
     this.ConditionDone2 = false;
     this.ConditionDone3 = true;
@@ -79,15 +91,39 @@ export class CardBoxComponent {
     this.styleThree = false;
     this.styleFour = false;
     this.styleFive = true;
+
   }
-  choice1(){
+
+  addChoice() {
+    this.InputArray.push({ value: '' });
+  }
+
+  choice1() {
     this.choiceHide2 = true;
   }
-  choice2(){
+  choice2() {
     this.choiceHide3 = true;
   }
-  choice3(){
+  choice3() {
     this.choiceHide4 = true;
   }
-  choice4(){}
+  choice4() {
+    this.choiceHide5 = true;
+  }
+  choice5() {
+    this.choiceHide6 = true;
+  }
+  choice6() {
+    this.choiceHide7 = true;
+  }
+  choice7() {
+    this.choiceHide8 = true;
+  }
+  choice8() { }
+
+
+
+
+
 }
+

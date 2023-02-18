@@ -8,7 +8,6 @@
    </div>
    <div class="card-body">
       <div class="row mt-1">
-         <!-- <p> -->
          <input type="text" name="inputprompt" class="prompt" placeholder="Define prompt"
          #text 
          (keyup)="getValue(text.value)"
@@ -17,8 +16,6 @@
          [class.italic-text]="styleItalic"
          [class.underline-text]="styleUnderline"
          [style]="styleFour && {'text-align':'left'} || styleFive && {'text-align':'right'}">
- 
-         <!-- </p> -->
       </div>
       <div class="left">
          <ul style="list-style-type:none;">
@@ -113,9 +110,6 @@
 </div>
 
 
-<!-- <img id="saveButton" src="assets/SaveButton.png" alt="" *ngIf="savebtn"> -->
-
-
 <!-- 2nd Screen -->
 <div class="content2" *ngIf="Condition2" ng-app="" cdkDropListGroup>
    <div class="card-header-1">
@@ -133,26 +127,26 @@
       </div>
       <div class="left-1">
          <ul style="list-style-type: none;">
-            <li *ngIf="choice1">
+            <li *ngIf="choice1" cdkDrag class="dragging" (cdkDragStarted)="onDragStarted()" (cdkDragEnded)="onDragEnded()">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
                {{textInput1}}
             </li>
-            <li *ngIf="choice2">
+            <li *ngIf="choice2" cdkDrag class="dragging">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               {{textInput2}}
+            {{textInput2}}
             </li>
-            <li *ngIf="choice3">
+            <li *ngIf="choice3" cdkDrag class="dragging">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
              {{textInput}}
             </li>
-            <li *ngIf="choice4">
+            <li *ngIf="choice4" cdkDrag class="dragging">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
                {{textInput4}}
             </li>
          </ul>
       </div>
       <img src="./assets/Icons/arrowleft.png" class="arrowleft">
-      <div class="right-1">
+      <div class="right-1" cdkDropList (cdkDropListDropped)="onDrop($event)">
 
       </div>
       <a (click)="screen3()">

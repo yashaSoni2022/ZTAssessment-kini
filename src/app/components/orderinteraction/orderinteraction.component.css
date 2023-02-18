@@ -10,6 +10,10 @@
     border-radius: 20px;
 }
 
+.dragging {
+    cursor: move;
+}
+
 .card-header{
     position: absolute;
     left: 380px;
@@ -19,8 +23,6 @@
     background: #0C747E;
     border-radius: 20px 20px 0px 0px;
 }
-
-
 
 .header-title{
     font-family: 'Roboto';

@@ -1,4 +1,5 @@
-import { Component,Input } from '@angular/core';
+import { Component,Inject,Input } from '@angular/core';
+import { CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-orderinteraction',
@@ -28,6 +29,10 @@ export class OrderinteractionComponent {
   styleFour: boolean = false;
   styleFive: boolean = false;
   value: string = '';
+
+
+  draggedItem: any;
+  droppedItem: any;
 
   public textInput: string = '';
   public textInput1: string = '';
@@ -131,5 +136,23 @@ export class OrderinteractionComponent {
     if(this.value){
       this.styleFive=true;
     }
+  }
+
+  
+
+  onDrop(event: CdkDragDrop<any[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+    }
+  }
+
+  onDragStarted() {
+    document.body.classList.add('dragging');
+  }
+  
+  onDragEnded() {
+    document.body.classList.remove('dragging');
   }
 }

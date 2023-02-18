@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component,Inject,Input } from '@angular/core';
+import { CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-orderinteraction',
@@ -29,6 +30,10 @@ export class OrderinteractionComponent {
   styleFive: boolean = false;
   value: string = '';
 
+
+  draggedItem: any;
+  droppedItem: any;
+
   public textInput: string = '';
   public textInput1: string = '';
   public textInput2: string = '';
@@ -36,6 +41,15 @@ export class OrderinteractionComponent {
 
   getValue(val: string) {
     this.value = val;
+    if (!this.value) {
+      this.deleteTextDecoration();
+    }
+  }
+
+  deleteTextDecoration() {
+    this.styleBold = false;
+    this.styleItalic = false;
+    this.styleUnderline = false;
   }
 
   displayText() {
@@ -120,16 +134,34 @@ export class OrderinteractionComponent {
       this.styleUnderline = !this.styleUnderline;
     }
   }
-
-  Dash1() {
-    if (this.value) {
-      this.styleFour = true;
+  
+  Dash1(){
+    if(this.value){
+     this.styleFour = !this.styleFour;
     }
   }
 
-  Dash2() {
-    if (this.value) {
-      this.styleFive = true;
+  Dash2(){
+    if(this.value){
+      this.styleFive= !this.styleFive;
     }
+  }
+
+  
+
+  onDrop(event: CdkDragDrop<any[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+    }
+  }
+
+  onDragStarted() {
+    document.body.classList.add('dragging');
+  }
+  
+  onDragEnded() {
+    document.body.classList.remove('dragging');
   }
 }

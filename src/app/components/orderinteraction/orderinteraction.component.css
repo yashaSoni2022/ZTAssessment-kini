@@ -10,6 +10,10 @@
     border-radius: 20px;
 }
 
+.dragging {
+    cursor: move;
+}
+
 .card-header{
     position: absolute;
     left: 380px;
@@ -20,8 +24,6 @@
     border-radius: 20px 20px 0px 0px;
 }
 
-
-
 .header-title{
     font-family: 'Roboto';
     font-style: normal;
@@ -31,6 +33,33 @@
     letter-spacing: 0.5px;
     color: #FFFFFF;
     padding-left: 20px;
+}
+
+.que{
+    border-right: 0.5px solid #FFFFFF;
+    padding-right: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.5px;
+}
+
+.res{
+    border-right: 0.5px solid #FFFFFF;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 0.5px;
+}
+
+.delimg{
+    padding-left: 10px;
 }
 
 span {
@@ -179,7 +208,7 @@ span img {
     width: 720px;
     height: 300px;
     left: 380px;
-    top: 140px;
+    top: 160px;
     background: #FFFFFF;
     border: 3px solid #0C747E;
     border-radius: 20px;

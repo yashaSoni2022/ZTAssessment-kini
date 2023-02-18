@@ -41,6 +41,15 @@ export class OrderinteractionComponent {
 
   getValue(val: string) {
     this.value = val;
+    if (!this.value) {
+      this.deleteTextDecoration();
+    }
+  }
+
+  deleteTextDecoration() {
+    this.styleBold = false;
+    this.styleItalic = false;
+    this.styleUnderline = false;
   }
 
   displayText() {
@@ -128,13 +137,13 @@ export class OrderinteractionComponent {
   
   Dash1(){
     if(this.value){
-     this.styleFour=true;
+     this.styleFour = !this.styleFour;
     }
   }
 
   Dash2(){
     if(this.value){
-      this.styleFive=true;
+      this.styleFive= !this.styleFive;
     }
   }
 

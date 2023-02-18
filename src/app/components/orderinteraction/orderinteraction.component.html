@@ -1,10 +1,14 @@
 <!-- 1st Screen -->
-<div class="container" *ngIf="Condition1" ng-app="">
+<div class="container"  *ngIf="Condition1" ng-app="">
    <div class="card" style="width: 45rem;"></div>
    <div class="card-header">
-      <p class="header-title">ORDER-INTERACTION
-         <span>QUESTION | RESPONSE | <a type="button" (click)="dismissbox()"><img src="./assets/delete.png"></a></span>
-      </p>
+      <div class="header-title">ORDER-INTERACTION
+         <div style="display: inline-flex;position: absolute;right: 30px;">
+         <div style="display: inline-flex;" class="que"><a style="cursor: pointer;">QUESTION</a></div>
+         <div style="display: inline-flex;" class="res"><a style="cursor: pointer;">RESPONSE</a></div>
+         <a type="button" (click)="dismissbox()"><img src="./assets/delete.png" class="delimg"></a>
+         </div>
+      </div>
    </div>
    <div class="card-body">
       <div class="row mt-1">
@@ -113,10 +117,13 @@
 <!-- 2nd Screen -->
 <div class="content2" *ngIf="Condition2" ng-app="" cdkDropListGroup>
    <div class="card-header-1">
-      <p class="header-title">ORDER-INTERACTION
-         <span>QUESTION | RESPONSE | <a type="button" (click)="invisiblebox()"><img
-                  src="./assets/delete.png"></a></span>
-      </p>
+      <div class="header-title">ORDER-INTERACTION
+         <div style="display: inline-flex;position: absolute;right: 30px;">
+         <div style="display: inline-flex;" class="que"><a style="cursor: pointer;">QUESTION</a></div>
+         <div style="display: inline-flex;" class="res"><a style="cursor: pointer;">RESPONSE</a></div>
+         <a type="button" (click)="dismissbox()"><img src="./assets/delete.png" class="delimg"></a>
+         </div>
+      </div>
    </div>
    <div class="card-body">
       <div class="row mt-1">
@@ -137,7 +144,7 @@
             </li>
             <li *ngIf="choice3" cdkDrag class="dragging">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-             {{textInput}}
+            {{textInput}}
             </li>
             <li *ngIf="choice4" cdkDrag class="dragging">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">

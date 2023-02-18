@@ -29,10 +29,16 @@ export class OrderinteractionComponent {
   styleFour: boolean = false;
   styleFive: boolean = false;
   value: string = '';
-
-
   draggedItem: any;
   droppedItem: any;
+
+  // choices: string[] = ['', '', ''];
+  choices: { value: string, index: number }[] = [
+    { value: 'choice 1', index: 0 },
+    { value: 'choice 2', index: 1 },
+    { value: 'choice 3', index: 2 },
+    { value: 'choice 4', index: 3 }
+  ];
 
   public textInput: string = '';
   public textInput1: string = '';
@@ -53,10 +59,33 @@ export class OrderinteractionComponent {
   }
 
   displayText() {
-    console.log(this.textInput);
-    console.log(this.textInput1);
-    console.log(this.textInput2);
-    console.log(this.textInput4);
+    if(!this.textInput1){
+      this.choice1=false;
+    }
+    else{
+      this.choice1=true;
+    }
+
+    if(!this.textInput2){
+      this.choice2=false;
+    }
+    else{
+      this.choice2=true;
+    }
+
+    if(!this.textInput){
+      this.choice3=false;
+    }
+    else{
+      this.choice3=true;
+    }
+ 
+    if(!this.textInput4){
+      this.choice4=false;
+    }
+    else{
+      this.choice4=true;
+    }
   }
 
   screen2() {
@@ -82,24 +111,48 @@ export class OrderinteractionComponent {
     this.Condition2 = false;
   }
 
-  deleteicon1() {
+  deleteicon1(index: number) {
     this.delete1 = false;
     this.choice1 = false;
+
+    this.choices.splice(index, 1);
+    for (let i = index; i < this.choices.length; i++) {
+      this.choices[i].index = i;
+    }
   }
 
-  deleteicon2() {
+  deleteicon2(index: number) {
     this.delete2 = false;
     this.choice2 = false;
+
+    this.choices.splice(index, 1);
+    for (let i = index; i < this.choices.length; i++) {
+      this.choices[i].index = i;
+    }
   }
 
-  deleteicon3() {
+  deleteicon3(index: number) {
     this.delete3 = false;
     this.choice3 = false;
+
+    this.choices.splice(index, 1);
+    for (let i = index; i < this.choices.length; i++) {
+      this.choices[i].index = i;
+    }
   }
 
-  deleteicon4() {
+  deleteicon4(index: number) {
     this.delete4 = false;
     this.choice4 = false;
+
+    this.choices.splice(index, 1);
+    for (let i = index; i < this.choices.length; i++) {
+      this.choices[i].index = i;
+    }
+  }
+
+  trackByFn(index: number, choice: { value: string, index: number }) {
+    return choice.index;
   }
 
   dismiss() {
@@ -115,6 +168,7 @@ export class OrderinteractionComponent {
     this.delete4 = true;
     this.choicebox = false;
     this.choice4 = true;
+    this.choices.push({ value: '', index: this.choices.length });
   }
 
   boldText() {

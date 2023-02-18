@@ -21,34 +21,34 @@
          [class.underline-text]="styleUnderline"
          [style]="styleFour && {'text-align':'left'} || styleFive && {'text-align':'right'}">
       </div>
-      <div class="left">
+      <div class="left" *ngFor="let choice of choices; let i = index; trackBy: trackByFn">
          <ul style="list-style-type:none;">
             <li *ngIf="delete1" class="list-item">
                <img src="./assets/Icons/ellipse.png">
-               <input type="text" name="inputprompt" placeholder="Choice 1" class="inpu" [(ngModel)]="textInput1"> 
-               <a (click)="deleteicon1()">
+               <input type="text" name="inputprompt" placeholder="Choice {{ i  }}" class="inpu" [(ngModel)]="textInput1"  onfocus="this.placeholder = ''"> 
+               <a (click)="deleteicon1(i)">
                   <img src="./assets/deletegreen.png" class="deleteicon">
                </a>
             </li>
             <li *ngIf="delete2" class="list-item">
                <img src="./assets/Icons/ellipse.png">
-               <input type="text" name="inputprompt" placeholder="Choice 2" class="inpu" [(ngModel)]="textInput2"> 
-               <a (click)="deleteicon2()">
+               <input type="text" name="inputprompt" placeholder="Choice {{ i   }}" class="inpu" [(ngModel)]="textInput2"  onfocus="this.placeholder = ''"> 
+               <a (click)="deleteicon2(i)">
                   <img src="./assets/deletegreen.png" class="deleteicon">
                </a>
             </li>
             <li *ngIf="delete3" class="list-item">
                <img src="./assets/Icons/ellipse.png">
-               <input type="text" name="inputprompt" placeholder="Choice 3" class="inpu" [(ngModel)]="textInput"> 
-               <a (click)="deleteicon3()">
+               <input type="text" name="inputprompt" placeholder="Choice {{ i  }}" class="inpu" [(ngModel)]="textInput"  onfocus="this.placeholder = ''"> 
+               <a (click)="deleteicon3(i)">
                   <img src="./assets/deletegreen.png" class="deleteicon">
                </a>
             </li>
 
             <li *ngIf="delete4" class="list-item">
                <img src="./assets/Icons/ellipse.png">
-               <input type="text" name="inputprompt" placeholder="Choice 4" class="inpu" [(ngModel)]="textInput4"> 
-               <a (click)="deleteicon4()">
+               <input type="text" name="inputprompt" placeholder="Choice {{ i  }}" class="inpu" [(ngModel)]="textInput4"  onfocus="this.placeholder = ''"> 
+               <a (click)="deleteicon4(i)">
                   <img src="./assets/deletegreen.png" class="deleteicon">
                </a>
             </li>
@@ -115,7 +115,7 @@
 
 
 <!-- 2nd Screen -->
-<div class="content2" *ngIf="Condition2" ng-app="" cdkDropListGroup>
+<div class="content2" *ngIf="Condition2" ng-app="">
    <div class="card-header-1">
       <div class="header-title">ORDER-INTERACTION
          <div style="display: inline-flex;position: absolute;right: 30px;">
@@ -134,55 +134,17 @@
       </div>
       <div class="left-1">
          <ul style="list-style-type: none;">
-            <li *ngIf="choice1" cdkDrag class="dragging" (cdkDragStarted)="onDragStarted()" (cdkDragEnded)="onDragEnded()">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               {{textInput1}}
-            </li>
-            <li *ngIf="choice2" cdkDrag class="dragging">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-            {{textInput2}}
-            </li>
-            <li *ngIf="choice3" cdkDrag class="dragging">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-            {{textInput}}
-            </li>
-            <li *ngIf="choice4" cdkDrag class="dragging">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               {{textInput4}}
-            </li>
-         </ul>
-      </div>
-      <img src="./assets/Icons/arrowleft.png" class="arrowleft">
-      <div class="right-1" cdkDropList (cdkDropListDropped)="onDrop($event)">
-
-      </div>
-      <a (click)="screen3()">
-         <img src="./assets/Vector.png" class="autosave">
-      </a>
-   </div>
-</div>
-<!-- 
-<img id="saveButton1" src="assets/SaveButton.png" alt="" *ngIf="savebtn1"> -->
-
-<!-- 3rd Screen -->
-<div class="content2" *ngIf="Condition3">
-   <div class="card-header-1">
-      <p class="header-title">ITEM 1
-   </div>
-   <div class="card-body">
-      <div class="left-1">
-         <ul style="list-style-type: none;">
             <li *ngIf="choice1">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
                {{textInput1}}
             </li>
             <li *ngIf="choice2">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               {{textInput2}}
+            {{textInput2}}
             </li>
             <li *ngIf="choice3">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               {{textInput}}
+            {{textInput}}
             </li>
             <li *ngIf="choice4">
                <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
@@ -194,5 +156,45 @@
       <div class="right-1">
 
       </div>
+      <a (click)="screen3()">
+         <img src="./assets/Icons/savebtn.png" class="autosave">
+      </a>
    </div>
 </div>
+
+<img id="saveButton1" src="assets/SaveButton.png" alt="" *ngIf="savebtn1">
+
+<!-- 3rd Screen -->
+<div class="content2" *ngIf="Condition3"  cdkDropListGroup>
+   <div class="card-header-1">
+      <p class="header-title">ITEM 1
+   </div>
+   <div class="card-body">
+      <div class="left-1">
+         <ul style="list-style-type: none;">
+            <li *ngIf="choice1" cdkDrag class="dragging" (cdkDragStarted)="onDragStarted()" (cdkDragEnded)="onDragEnded()">
+               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
+               {{textInput1}}
+            </li>
+            <li *ngIf="choice2" cdkDrag class="dragging" (cdkDragStarted)="onDragStarted()" (cdkDragEnded)="onDragEnded()">
+               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
+               {{textInput2}}
+            </li>
+            <li *ngIf="choice3" cdkDrag class="dragging" (cdkDragStarted)="onDragStarted()" (cdkDragEnded)="onDragEnded()">
+               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
+               {{textInput}}
+            </li>
+            <li *ngIf="choice4" cdkDrag class="dragging" (cdkDragStarted)="onDragStarted()" (cdkDragEnded)="onDragEnded()">
+               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
+               {{textInput4}}
+            </li>
+         </ul>
+      </div>
+      <img src="./assets/Icons/arrowleft.png" class="arrowleft">
+      <div class="right-1"  cdkDropList (cdkDropListDropped)="onDrop($event)">
+
+      </div>
+   </div>
+</div>
+
+<img id="saveButton1" src="assets/SaveButton.png" alt="" *ngIf="savebtn1">

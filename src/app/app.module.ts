@@ -32,7 +32,7 @@ import { FileManipulationComponent } from './components/file-manipulation/file-m
   //     { path: 'order-interaction', component: OrderinteractionComponent },
   //   ]),
   // ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule,DragDropModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, DragDropModule],
   providers: [],
   bootstrap: [AppComponent],
 })

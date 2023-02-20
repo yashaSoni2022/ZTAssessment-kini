@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-card-box',
@@ -9,17 +9,12 @@ export class CardBoxComponent {
 
   InputArray: any[] = [];
 
-  choiceAdd:string = "";
+  choiceAdd: string = "";
+  inputValue: string = "";
+  addQuestion: string = "";
+  answerValue: string = "";
 
-  // choiceBind1: string = "";
-  // choiceBind2: string = "";
-  // choiceBind3: string = "";
-  // choiceBind4: string = "";
-  // choiceBind5: string = "";
-  // choiceBind6: string = "";
-  // choiceBind7: string = "";
-  // choiceBind8: string = "";
-
+  dotShow: boolean = true;
   styleOne: boolean = false;
   styleTwo: boolean = false;
   styleThree: boolean = false;
@@ -31,20 +26,9 @@ export class CardBoxComponent {
   ConditionDone3: boolean = false;
   hideBottomContent: boolean = true;
 
-  choiceHide1: boolean = false;
-  choiceHide2: boolean = false;
-  choiceHide3: boolean = false;
-  choiceHide4: boolean = false;
-  choiceHide5: boolean = false;
-  choiceHide6: boolean = false;
-  choiceHide7: boolean = false;
-  choiceHide8: boolean = false;
 
   constructor() { }
 
-  content() {
-    this.choiceHide1 = true;
-  }
 
   content2() {
     this.ConditionDone1 = false;
@@ -98,32 +82,11 @@ export class CardBoxComponent {
     this.InputArray.push({ value: '' });
   }
 
-  choice1() {
-    this.choiceHide2 = true;
-  }
-  choice2() {
-    this.choiceHide3 = true;
-  }
-  choice3() {
-    this.choiceHide4 = true;
-  }
-  choice4() {
-    this.choiceHide5 = true;
-  }
-  choice5() {
-    this.choiceHide6 = true;
-  }
-  choice6() {
-    this.choiceHide7 = true;
-  }
-  choice7() {
-    this.choiceHide8 = true;
-  }
-  choice8() { }
 
-
-
-
+  answer(value: any) {
+    this.answerValue = value.value;
+    this.dotShow = false;
+  }
 
 }
 

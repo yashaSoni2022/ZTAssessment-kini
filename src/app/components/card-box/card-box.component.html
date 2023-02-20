@@ -4,51 +4,32 @@
   <div class="card" style="width: 45rem;">
     <div class="card-header">
       <p class="modal-title fs-9" id="ModalLabel">GAP MATCH INTERACTION
-        <span>QUESTIONS | RESPONCE <a type="button" (click)="deleteContent()">|<img
+        <span>QUESTIONS | RESPONSE <a type="button" (click)="deleteContent()">|<img
               src="./assets/delete.png"></a></span>
       </p>
 
     </div>
     <div class="card-body">
       <div class="row mt-1 mb-3">
-        <!-- <p class="promt">Define Prompt</p> -->
         <input type="text" class="promt" placeholder="Define Prompt">
       </div>
 
       <div class="row choices">
         <a type="button" class="choice" (click)="addChoice()"><img src="./assets/Icons/add.png" height="12px"> Add
           Choice</a>
-        <div *ngFor="let value of InputArray">
-          <input type="text" class="choice2" placeholder="CHOICE" [(ngModel)]="choiceAdd">
-
-
-          <!-- <ng-container *ngIf="choiceHide1"><input type="text" class="choice2" [(ngModel)]="choiceBind1"
-              (click)="choice1()" placeholder="CHOICE 1"></ng-container> &nbsp;
-          <ng-container *ngIf="choiceHide2"><input type="text" class="choice2" [(ngModel)]="choiceBind2"
-              (click)="choice2()" placeholder="CHOICE 2"></ng-container> &nbsp;
-          <ng-container *ngIf="choiceHide3"><input type="text" class="choice2" [(ngModel)]="choiceBind3"
-              (click)="choice3()" placeholder="CHOICE 3"></ng-container> &nbsp;
-          <ng-container *ngIf="choiceHide4"><input type="text" class="choice2" [(ngModel)]="choiceBind4"
-              (click)="choice4()" placeholder="CHOICE 4"></ng-container>&nbsp;
-          <ng-container *ngIf="choiceHide5"><input type="text" class="choice2" [(ngModel)]="choiceBind5"
-              (click)="choice5()" placeholder="CHOICE 5"></ng-container>&nbsp;
-          <ng-container *ngIf="choiceHide6"><input type="text" class="choice2" [(ngModel)]="choiceBind6"
-              (click)="choice6()" placeholder="CHOICE 6"></ng-container>&nbsp;
-          <ng-container *ngIf="choiceHide7"><input type="text" class="choice2" [(ngModel)]="choiceBind7"
-              (click)="choice7()" placeholder="CHOICE 7"></ng-container>&nbsp;
-          <ng-container *ngIf="choiceHide8"><input type="text" class="choice2" [(ngModel)]="choiceBind8"
-              (click)="choice8()" placeholder="CHOICE 8"></ng-container>&nbsp; -->
+        <div class="choiceText">
+          <ng-container *ngFor="let value of InputArray; let i = index">
+            <div *ngIf="i<8" class="ngDiv">
+              <input type="text" class="choice2" [(ngModel)]="value.value" #name="ngModel" name="value{{i}}"
+                placeholder="CHOICE">
+            </div>
+          </ng-container>
         </div>
-        <!-- <div *ngFor="let value of InputArray">
-          {{value}}
-        </div> -->
       </div>
-      <div class="paragraph" >
-        <!-- <p class="mt-1" id="ipsum"
-          [style]="styleOne && {'font-weight':'bold'} || styleTwo && {'font-style':'italic'} || styleThree && {'text-decoration': 'underline'}  || styleFour && {'text-align': 'left'} || styleFive && {'text-align': 'right'}">
-          Lorem ipsum dolor sit amet , Consectetur adipiscing, elit sed do</p> -->
-          <input type="text" [style]="styleOne && {'font-weight':'bold'} || styleTwo && {'font-style':'italic'} || styleThree && {'text-decoration': 'underline'}  || styleFour && {'text-align': 'left'} || styleFive && {'text-align': 'right'}"
-          placeholder="Lorem ipsum dolor sit amet , Consectetur adipiscing, elit sed do">
+      <div class="paragraph">
+        <input type="text"
+          [style]="styleOne && {'font-weight':'bold'} || styleTwo && {'font-style':'italic'} || styleThree && {'text-decoration': 'underline'}  || styleFour && {'text-align': 'left'} || styleFive && {'text-align': 'right'}"
+          placeholder="Lorem ipsum dolor sit amet , Consectetur adipiscing, elit sed do" [(ngModel)]="inputValue">
       </div>
       <div class="done">
         <a type="button" (click)="content2()"><img src="./assets/done.png"></a>
@@ -117,49 +98,19 @@
     </div>
     <div class="card-body">
       <div class="row choices">
-        <div *ngFor="let value of InputArray; let i = index">
-          {{choiceAdd}}
-          <!-- <input type="text" class="choice2" placeholder="CHOICE"> -->
-          <!-- <ng-container *ngIf="choiceHide1"><input type="text" class="choice2" placeholder="CHOICE 1"
-              [(ngModel)]="choiceBind1"></ng-container>
-          &nbsp;
-          <ng-container *ngIf="choiceHide2"><input type="text" class="choice2" placeholder="CHOICE 2"
-              [(ngModel)]="choiceBind2"></ng-container>
-          &nbsp;
-          <ng-container *ngIf="choiceHide3"><input type="text" class="choice2" placeholder="CHOICE 3"
-              [(ngModel)]="choiceBind3"></ng-container>
-          &nbsp;
-          <ng-container *ngIf="choiceHide4"><input type="text" class="choice2" placeholder="CHOICE 4"
-              [(ngModel)]="choiceBind4"></ng-container>
-          <ng-container *ngIf="choiceHide5"><input type="text" class="choice2" placeholder="CHOICE 1"
-              [(ngModel)]="choiceBind1"></ng-container>
-          &nbsp;
-          <ng-container *ngIf="choiceHide6"><input type="text" class="choice2" placeholder="CHOICE 2"
-              [(ngModel)]="choiceBind2"></ng-container>
-          &nbsp;
-          <ng-container *ngIf="choiceHide7"><input type="text" class="choice2" placeholder="CHOICE 3"
-              [(ngModel)]="choiceBind3"></ng-container>
-          &nbsp;
-          <ng-container *ngIf="choiceHide8"><input type="text" class="choice2" placeholder="CHOICE 4"
-              [(ngModel)]="choiceBind4"></ng-container>
-          &nbsp; -->
-
-          <!-- <div *ngFor="let value of InputArray">
-            {{value}}
-          </div> -->
+        <div class="choiceText">
+          <div *ngFor="let value of InputArray;  let i = index">
+            {{value.value}}
+          </div>
         </div>
       </div>
-      <div class="paragraph">
-        <p
-          [style]="styleOne && {'font-weight':'bold'} || styleTwo && {'font-style':'italic'} || styleThree && {'text-decoration': 'underline'}">
-          <img src="./assets/Icons/symbol.png" height="15px">&nbsp;&nbsp; Lorem ipsum dolor sit amet , Consectetur
-          adipiscing, elit sed do
-        </p>
+      <div class="paragraph2">
+        <input type="text" [(ngModel)]="addQuestion"
+          placeholder="&nbsp;&nbsp;Please add one or more gaps to the  text in question mode.">
       </div>
-
-      <div class="para">
-        <p>Lorem ipsum dolor sit amet , Consectetur adipiscing, elit sed do </p>
-      </div>
+      <p class="paraValue"
+        [style]="styleOne && {'font-weight':'bold'} || styleTwo && {'font-style':'italic'} || styleThree && {'text-decoration': 'underline'}  || styleFour && {'text-align': 'left'} || styleFive && {'text-align': 'right'}">
+        {{inputValue}}&nbsp;{{addQuestion}}</p>
       <div class="done-btn">
         <a type="button" (click)="content3()"><img src="./assets/done.png"></a>
       </div>
@@ -184,34 +135,21 @@
     </div>
     <div class="card-body">
       <div class="row choices">
-        <div *ngFor="let value of InputArray; let i = index">
-          <input type="text" class="choice2" placeholder="CHOICE">
-
-          <!-- <ng-container *ngIf="choiceHide1"><input type="text" class="choice2" placeholder="CHOICE 1"
-              [(ngModel)]="choiceBind1"></ng-container>
-          &nbsp;&nbsp;
-          <ng-container *ngIf="choiceHide2"><input type="text" class="choice2" placeholder="CHOICE 2"
-              [(ngModel)]="choiceBind2"></ng-container>
-          &nbsp;&nbsp;
-          <ng-container *ngIf="choiceHide3"><input type="text" class="choice2" placeholder="CHOICE 3"
-              [(ngModel)]="choiceBind3"></ng-container>
-          &nbsp;&nbsp;
-          <ng-container *ngIf="choiceHide4"><input type="text" class="choice2" placeholder="CHOICE 4"
-              [(ngModel)]="choiceBind4"></ng-container>
-          &nbsp;&nbsp; -->
-
-          <!-- <div *ngFor="let value of InputArray">
-            {{value}}
-          </div> -->
+        <div class="choiceText">
+          <div *ngFor="let value of InputArray;  let i = index" (click)="answer(value)">
+            {{value.value}}
+          </div>
         </div>
       </div>
       <div class="para">
-        <p>Lorem ipsum dolor sit amet , Consectetur adipiscing, elit sed do </p>
+        <p id="values"
+          [style]="styleOne && {'font-weight':'bold'} || styleTwo && {'font-style':'italic'} || styleThree && {'text-decoration': 'underline'}  || styleFour && {'text-align': 'left'} || styleFive && {'text-align': 'right'}">
+          {{inputValue}}&nbsp;{{addQuestion}} -- <ng-container *ngIf="dotShow">........................</ng-container>
+          {{answerValue}}</p>
       </div>
       <div class="done-btn2">
         <a type="button"><img src="./assets/done.png"></a>
       </div>
     </div>
-
   </div>
 </div>

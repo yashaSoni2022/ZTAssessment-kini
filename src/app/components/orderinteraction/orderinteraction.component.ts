@@ -31,19 +31,10 @@ export class OrderinteractionComponent {
   value: string = '';
   draggedItem: any;
   droppedItem: any;
+  imgshow = false;
 
-  // choices: string[] = ['', '', ''];
-  choices: { value: string, index: number }[] = [
-    { value: 'choice 1', index: 0 },
-    { value: 'choice 2', index: 1 },
-    { value: 'choice 3', index: 2 },
-    { value: 'choice 4', index: 3 }
-  ];
-
-  public textInput: string = '';
-  public textInput1: string = '';
-  public textInput2: string = '';
-  public textInput4: string = '';
+  // choices = ["","",""];
+  choices = [{text: ''}, {text: ''}, {text: ''}];
 
   getValue(val: string) {
     this.value = val;
@@ -59,33 +50,16 @@ export class OrderinteractionComponent {
   }
 
   displayText() {
-    if(!this.textInput1){
-      this.choice1=false;
-    }
-    else{
-      this.choice1=true;
-    }
+    this.imgshow = this.checkChoices();
+  }
 
-    if(!this.textInput2){
-      this.choice2=false;
+  checkChoices(): boolean {
+    for (let i = 0; i < this.choices.length; i++) {
+      if (this.choices[i].text !== '') {
+        return true;
+      }
     }
-    else{
-      this.choice2=true;
-    }
-
-    if(!this.textInput){
-      this.choice3=false;
-    }
-    else{
-      this.choice3=true;
-    }
- 
-    if(!this.textInput4){
-      this.choice4=false;
-    }
-    else{
-      this.choice4=true;
-    }
+    return false;
   }
 
   screen2() {
@@ -111,48 +85,8 @@ export class OrderinteractionComponent {
     this.Condition2 = false;
   }
 
-  deleteicon1(index: number) {
-    this.delete1 = false;
-    this.choice1 = false;
-
+  deleteicon(index: number) {
     this.choices.splice(index, 1);
-    for (let i = index; i < this.choices.length; i++) {
-      this.choices[i].index = i;
-    }
-  }
-
-  deleteicon2(index: number) {
-    this.delete2 = false;
-    this.choice2 = false;
-
-    this.choices.splice(index, 1);
-    for (let i = index; i < this.choices.length; i++) {
-      this.choices[i].index = i;
-    }
-  }
-
-  deleteicon3(index: number) {
-    this.delete3 = false;
-    this.choice3 = false;
-
-    this.choices.splice(index, 1);
-    for (let i = index; i < this.choices.length; i++) {
-      this.choices[i].index = i;
-    }
-  }
-
-  deleteicon4(index: number) {
-    this.delete4 = false;
-    this.choice4 = false;
-
-    this.choices.splice(index, 1);
-    for (let i = index; i < this.choices.length; i++) {
-      this.choices[i].index = i;
-    }
-  }
-
-  trackByFn(index: number, choice: { value: string, index: number }) {
-    return choice.index;
   }
 
   dismiss() {
@@ -165,10 +99,9 @@ export class OrderinteractionComponent {
   }
 
   addChoice() {
-    this.delete4 = true;
-    this.choicebox = false;
-    this.choice4 = true;
-    this.choices.push({ value: '', index: this.choices.length });
+    if(this.choices.length == 4)
+        return;
+    this.choices.push({text: ''});
   }
 
   boldText() {

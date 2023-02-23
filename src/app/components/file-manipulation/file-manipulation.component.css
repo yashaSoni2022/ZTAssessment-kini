@@ -128,8 +128,15 @@
 }
 
 /* Defines the same text color as the typed one when pasted from a pop up window that stores last used text: */
+input:-webkit-autofill,
+input:-webkit-autofill:active,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  font-family: "Roboto";
+  color: #0c747e;
+}
 input[type="text"]:focus:focus-visible {
-  -webkit-text-fill-color: #0c747e;
+  -webkit-text-fill-color: #0c747e !important;
 
   outline: #0c747e;
   border: 3px solid #0c747e;

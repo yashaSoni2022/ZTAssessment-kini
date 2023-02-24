@@ -13,6 +13,7 @@ export class ChoiceBoxComponent {
   ConditionDone2: boolean = false;
   ConditionDone3: boolean = false;
 
+  
   questions: string = "";
   questionsAdd: string = "";
 
@@ -20,6 +21,9 @@ export class ChoiceBoxComponent {
 
   deleteContent() {
     this.ConditionDone1 = false;
+  }
+  deleteContent2() {
+    this.ConditionDone2 = false;
   }
 
   deleteChoice1(item: any) {

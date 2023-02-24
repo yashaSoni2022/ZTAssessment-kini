@@ -6,7 +6,7 @@
     </a>
   </div>
   <div class="header-box">
-    <label class="box-title">UPLOAD INTERACTION</label>
+    <label class="box-title">HOTTEXT INTERACTION</label>
     <div class="question-opt">QUESTION</div>
     <img class="vert-line" src="./assets/Icons/Line 7.png" />
     <div class="response-opt">RESPONSE</div>
@@ -28,24 +28,34 @@
     [class.italic-text]="styleItalic"
     [class.underline-text]="styleUnderline"
   />
-  <a class="browse-btn" (click)="browseFiles()">
-    <img src="./assets/Browse.png" />
-  </a>
-  <div class="selected-files">
-    <label class="sel-data-label">No File Selected</label>
-  </div>
+  <textarea
+    class="input-text"
+    type="text"
+    name="inputprompt"
+    #text
+    (keyup)="getValue(text.value)"
+    placeholder="Lorem ipsum dolor sit amet...."
+    onfocus="this.placeholder = ''"
+    onblur="this.placeholder = 'Lorem ipsum dolor sit amet....'"
+  ></textarea>
 </div>
 
 <!-- Second menu: -->
-
 <div class="container" *ngIf="Condition2" ng-app="">
-  <div class="main-box2">
+  <div class="main-box">
     <a class="btn-save" (click)="screen3()">
       <img src="./assets/file-manipulationIcons/Save-Button.png" />
     </a>
+
+    <div class="box-warning">
+      <img class="img-warning" src="./assets/Icons/symbol2.png" />
+      <label class="label-warning"
+        >Please select the correct hottext choices below</label
+      >
+    </div>
   </div>
   <div class="header-box">
-    <label class="box-title">UPLOAD INTERACTION</label>
+    <label class="box-title">HOTTEXT INTERACTION</label>
     <div class="question-opt">QUESTION</div>
     <img class="vert-line" src="./assets/Icons/Line 7.png" />
     <div class="response-opt">RESPONSE</div>
@@ -54,33 +64,29 @@
       <img src="/assets/delete.png" />
     </a>
   </div>
-  <a class="browse-btn2">
-    <img src="./assets/Browse.png" />
-  </a>
-  <div class="selected-files2">
-    <label class="sel-data-label">No File Selected</label>
-  </div>
+  <textarea
+    class="input-text2"
+    type="text"
+    name="inputprompt"
+    #text
+    (keyup)="getValue(text.value)"
+    placeholder="Lorem ipsum dolor sit amet...."
+    onfocus="this.placeholder = ''"
+    onblur="this.placeholder = 'Lorem ipsum dolor sit amet....'"
+  ></textarea>
 </div>
 
 <!-- Third menu: -->
 <div class="container" *ngIf="Condition3" ng-app="">
-  <div class="main-box2">
-    <a class="btn-save" (click)="screen3()">
-      <img src="./assets/file-manipulationIcons/Save-Button.png" />
-    </a>
+  <div class="main-box">
+    <label class="label-warning"
+      >Please select the correct hottext choices below</label
+    >
   </div>
   <div class="header-box">
-    <label class="box-title">ITEM 2</label>
-    <a class="delete-box" (click)="dismissbox()">
-      <img src="/assets/delete.png" />
-    </a>
+    <label class="box-title">ITEM_1</label>
   </div>
-  <a class="browse-btn2">
-    <img src="./assets/Browse.png" />
-  </a>
-  <div class="selected-files2">
-    <label class="sel-data-label">No File Selected</label>
-  </div>
+  <label class="label-last">Lorem ipsum dolor sit amet....</label>
 </div>
 
 <!-- Symbols -->
@@ -150,6 +156,3 @@
     </div>
   </div>
 </div>
-<a (click)="screen2()">
-  <img src="./assets/Vector.png" class="autosave1" *ngIf="autosave" />
-</a>

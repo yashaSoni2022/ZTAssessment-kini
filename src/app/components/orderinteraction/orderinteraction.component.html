@@ -21,36 +21,13 @@
          [class.underline-text]="styleUnderline"
          [style]="styleFour && {'text-align':'left'} || styleFive && {'text-align':'right'}">
       </div>
-      <div class="left" *ngFor="let choice of choices; let i = index; trackBy: trackByFn">
-         <ul style="list-style-type:none;">
-            <li *ngIf="delete1" class="list-item">
-               <img src="./assets/Icons/ellipse.png">
-               <input type="text" name="inputprompt" placeholder="Choice {{ i  }}" class="inpu" [(ngModel)]="textInput1"  onfocus="this.placeholder = ''"> 
-               <a (click)="deleteicon1(i)">
-                  <img src="./assets/deletegreen.png" class="deleteicon">
-               </a>
-            </li>
-            <li *ngIf="delete2" class="list-item">
-               <img src="./assets/Icons/ellipse.png">
-               <input type="text" name="inputprompt" placeholder="Choice {{ i   }}" class="inpu" [(ngModel)]="textInput2"  onfocus="this.placeholder = ''"> 
-               <a (click)="deleteicon2(i)">
-                  <img src="./assets/deletegreen.png" class="deleteicon">
-               </a>
-            </li>
-            <li *ngIf="delete3" class="list-item">
-               <img src="./assets/Icons/ellipse.png">
-               <input type="text" name="inputprompt" placeholder="Choice {{ i  }}" class="inpu" [(ngModel)]="textInput"  onfocus="this.placeholder = ''"> 
-               <a (click)="deleteicon3(i)">
-                  <img src="./assets/deletegreen.png" class="deleteicon">
-               </a>
-            </li>
 
-            <li *ngIf="delete4" class="list-item">
+      <div class="left">
+         <ul style="list-style-type:none;">
+            <li class="list-item" *ngFor="let choice of choices;index as i">
                <img src="./assets/Icons/ellipse.png">
-               <input type="text" name="inputprompt" placeholder="Choice {{ i  }}" class="inpu" [(ngModel)]="textInput4"  onfocus="this.placeholder = ''"> 
-               <a (click)="deleteicon4(i)">
-                  <img src="./assets/deletegreen.png" class="deleteicon">
-               </a>
+               <input type="text" name="inputprompt" class="inpu" placeholder="Choice{{i+1}}" [(ngModel)]="choice.text" onfocus="this.placeholder = ''">
+               <img src="./assets/deletegreen.png" class="deleteicon" (click)="deleteicon(i)">
             </li>
          </ul>
          <a type="button" class="choice" *ngIf="choicebox" (click)="addChoice()"><img src="./assets/Icons/add.png" height="12px"> Add Choice</a>
@@ -134,22 +111,11 @@
       </div>
       <div class="left-1">
          <ul style="list-style-type: none;">
-            <li *ngIf="choice1">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               {{textInput1}}
+            <li *ngFor="let i of choices">
+               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle" *ngIf="imgshow && i.text">
+               {{i.text}}
             </li>
-            <li *ngIf="choice2">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-            {{textInput2}}
-            </li>
-            <li *ngIf="choice3">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-            {{textInput}}
-            </li>
-            <li *ngIf="choice4">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               {{textInput4}}
-            </li>
+            
          </ul>
       </div>
       <img src="./assets/Icons/arrowleft.png" class="arrowleft">
@@ -172,21 +138,9 @@
    <div class="card-body">
       <div class="left-1">
          <ul style="list-style-type: none;">
-            <li *ngIf="choice1" cdkDrag class="dragging" (cdkDragStarted)="onDragStarted()" (cdkDragEnded)="onDragEnded()">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               {{textInput1}}
-            </li>
-            <li *ngIf="choice2" cdkDrag class="dragging" (cdkDragStarted)="onDragStarted()" (cdkDragEnded)="onDragEnded()">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               {{textInput2}}
-            </li>
-            <li *ngIf="choice3" cdkDrag class="dragging" (cdkDragStarted)="onDragStarted()" (cdkDragEnded)="onDragEnded()">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               {{textInput}}
-            </li>
-            <li *ngIf="choice4" cdkDrag class="dragging" (cdkDragStarted)="onDragStarted()" (cdkDragEnded)="onDragEnded()">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               {{textInput4}}
+            <li *ngFor="let i of choices" cdkDrag class="dragging" (cdkDragStarted)="onDragStarted()" (cdkDragEnded)="onDragEnded()">
+               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle" *ngIf="imgshow && i.text">
+               {{i.text}}
             </li>
          </ul>
       </div>

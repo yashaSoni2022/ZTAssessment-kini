@@ -29,15 +29,12 @@ export class OrderinteractionComponent {
   styleFour: boolean = false;
   styleFive: boolean = false;
   value: string = '';
-
-
   draggedItem: any;
   droppedItem: any;
+  imgshow = false;
 
-  public textInput: string = '';
-  public textInput1: string = '';
-  public textInput2: string = '';
-  public textInput4: string = '';
+  // choices = ["","",""];
+  choices = [{text: ''}, {text: ''}, {text: ''}];
 
   getValue(val: string) {
     this.value = val;
@@ -53,10 +50,16 @@ export class OrderinteractionComponent {
   }
 
   displayText() {
-    console.log(this.textInput);
-    console.log(this.textInput1);
-    console.log(this.textInput2);
-    console.log(this.textInput4);
+    this.imgshow = this.checkChoices();
+  }
+
+  checkChoices(): boolean {
+    for (let i = 0; i < this.choices.length; i++) {
+      if (this.choices[i].text !== '') {
+        return true;
+      }
+    }
+    return false;
   }
 
   screen2() {
@@ -82,24 +85,8 @@ export class OrderinteractionComponent {
     this.Condition2 = false;
   }
 
-  deleteicon1() {
-    this.delete1 = false;
-    this.choice1 = false;
-  }
-
-  deleteicon2() {
-    this.delete2 = false;
-    this.choice2 = false;
-  }
-
-  deleteicon3() {
-    this.delete3 = false;
-    this.choice3 = false;
-  }
-
-  deleteicon4() {
-    this.delete4 = false;
-    this.choice4 = false;
+  deleteicon(index: number) {
+    this.choices.splice(index, 1);
   }
 
   dismiss() {
@@ -112,9 +99,9 @@ export class OrderinteractionComponent {
   }
 
   addChoice() {
-    this.delete4 = true;
-    this.choicebox = false;
-    this.choice4 = true;
+    if(this.choices.length == 4)
+        return;
+    this.choices.push({text: ''});
   }
 
   boldText() {

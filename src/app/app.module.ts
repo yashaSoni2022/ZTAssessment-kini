@@ -13,6 +13,7 @@ import { AdminHoverCardComponent } from './components/admin-hover-card/admin-hov
 import { FileManipulationComponent } from './components/file-manipulation/file-manipulation.component';
 import { GraphicalInteractionComponent } from './components/graphical-interaction/graphical-interaction.component';
 import { HottextInteractionComponent } from './components/hottext-interaction/hottext-interaction.component';
+import { Graphicalinteraction12Component } from './components/graphicalinteraction12/graphicalinteraction12.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HottextInteractionComponent } from './components/hottext-interaction/ho
     FileManipulationComponent,
     GraphicalInteractionComponent,
     HottextInteractionComponent,
+    Graphicalinteraction12Component,
   ],
   // imports: [
   //   BrowserModule,

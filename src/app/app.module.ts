@@ -11,6 +11,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { OrderinteractionComponent } from './components/orderinteraction/orderinteraction.component';
 import { AdminHoverCardComponent } from './components/admin-hover-card/admin-hover-card.component';
 import { FileManipulationComponent } from './components/file-manipulation/file-manipulation.component';
+import { Graphicalinteraction12Component } from './components/graphicalinteraction12/graphicalinteraction12.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FileManipulationComponent } from './components/file-manipulation/file-m
     AdminHoverCardComponent,
     OrderinteractionComponent,
     FileManipulationComponent,
+    Graphicalinteraction12Component,
   ],
   // imports: [
   //   BrowserModule,

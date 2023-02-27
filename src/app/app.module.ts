@@ -9,6 +9,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { OrderinteractionComponent } from './components/orderinteraction/orderinteraction.component';
 import { AdminHoverCardComponent } from './components/admin-hover-card/admin-hover-card.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { AdminHoverCardComponent } from './components/admin-hover-card/admin-hov
     SideBarComponent,
     AdminHoverCardComponent,
     OrderinteractionComponent,
+   
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

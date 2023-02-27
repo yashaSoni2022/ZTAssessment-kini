@@ -5,7 +5,8 @@
   --clr-medium: #83C5BE;
   --clr-dark: #0C747E;
   --clr-white: #fff;
-  font-family: Roboto;
+ 
+  
 
 
 }
@@ -16,9 +17,14 @@ html, body {
   padding: 0;
   height: 100vh;
   max-width: 100%;
-  font-family: Roboto;
+  
 }
 
 button {
   cursor: pointer;
+}
+
+*{
+  font-family: 'Roboto',sans-serif;
+  
 }

@@ -1,7 +1,7 @@
 header {
   min-width: 100%;
   max-width: 100%;
-  height: 15%;
+  height: 11%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,15 +13,17 @@ header {
 
 h1 {
   color: #FFF;
-  font-weight: 900;
+  font-weight: 600;
   margin-left: 1em;
+  font-size: 25px;
+  margin-bottom: 0;
 }
 
 
 
 .messageSetting {
   display: inline;
-  margin-right: 2em;
+  margin-right: 0.1em;
 }
 
 .searchProfilePower {
@@ -33,6 +35,7 @@ button {
   display: inline;
   background: none;
   border: none;
+  margin-left: 10px;
 }
 
 button {

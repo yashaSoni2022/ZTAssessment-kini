@@ -61,11 +61,8 @@ button:active {
 
 img {
   width: 100%;
-<<<<<<< HEAD
-  
 
-=======
->>>>>>> ba03e88266b6aeffebbfe4ce01185b3937c498fd
+  
 }
 
 td {
@@ -96,7 +93,7 @@ td {
 p img {
   max-width: 1em;
 }
-<<<<<<< HEAD
+
 .items,.tests,.testtakers,.groups,.deliveries,.groups,.results{
   width: 90px;
   height: 80px;
@@ -555,6 +552,3 @@ white-space: nowrap;
 
 
 
-
-=======
->>>>>>> ba03e88266b6aeffebbfe4ce01185b3937c498fd

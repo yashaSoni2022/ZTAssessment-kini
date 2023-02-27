@@ -467,7 +467,6 @@ input[type=search]:focus {
   left: 25px;
   top: 25px;
   gap: 7px;
-  
 }
 .g-arrow-left{
   transform: rotate(-90deg);

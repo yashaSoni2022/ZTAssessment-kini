@@ -23,14 +23,10 @@ import { Graphicalinteraction12Component } from './components/graphicalinteracti
     SideBarComponent,
     AdminHoverCardComponent,
     OrderinteractionComponent,
-<<<<<<< HEAD
-   
-=======
     FileManipulationComponent,
     GraphicalInteractionComponent,
     HottextInteractionComponent,
     Graphicalinteraction12Component,
->>>>>>> ba03e88266b6aeffebbfe4ce01185b3937c498fd
   ],
   // imports: [
   //   BrowserModule,

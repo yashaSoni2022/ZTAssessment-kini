@@ -7,14 +7,6 @@
   --clr-medium: #83C5BE;
   --clr-dark: #0C747E;
   --clr-white: #fff;
-<<<<<<< HEAD
- 
-  
-
-
-=======
-  font-family: Roboto;
->>>>>>> ba03e88266b6aeffebbfe4ce01185b3937c498fd
 }
 
 html, body {
@@ -23,7 +15,6 @@ html, body {
   padding: 0;
   height: 100vh;
   max-width: 100%;
-  
 }
 
 button {
@@ -32,5 +23,4 @@ button {
 
 *{
   font-family: 'Roboto',sans-serif;
-  
 }

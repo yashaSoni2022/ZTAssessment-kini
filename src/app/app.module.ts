@@ -14,6 +14,9 @@ import { FileManipulationComponent } from './components/file-manipulation/file-m
 import { GraphicalInteractionComponent } from './components/graphical-interaction/graphical-interaction.component';
 import { HottextInteractionComponent } from './components/hottext-interaction/hottext-interaction.component';
 import { Graphicalinteraction12Component } from './components/graphicalinteraction12/graphicalinteraction12.component';
+import { MatchInteractionComponent } from './components/match-interaction/match-interaction.component';
+import { Ctm001002Component } from './components/ctm001002/ctm001002.component';
+import { ExtTextInteractionComponent } from './components/ext-text-interaction/ext-text-interaction.component';
 
 
 @NgModule({
@@ -27,6 +30,9 @@ import { Graphicalinteraction12Component } from './components/graphicalinteracti
     GraphicalInteractionComponent,
     HottextInteractionComponent,
     Graphicalinteraction12Component,
+    MatchInteractionComponent,
+    Ctm001002Component,
+    ExtTextInteractionComponent
   ],
   // imports: [
   //   BrowserModule,

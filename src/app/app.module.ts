@@ -15,6 +15,7 @@ import { GraphicalInteractionComponent } from './components/graphical-interactio
 import { HottextInteractionComponent } from './components/hottext-interaction/hottext-interaction.component';
 import { Graphicalinteraction12Component } from './components/graphicalinteraction12/graphicalinteraction12.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,10 +23,14 @@ import { Graphicalinteraction12Component } from './components/graphicalinteracti
     SideBarComponent,
     AdminHoverCardComponent,
     OrderinteractionComponent,
+<<<<<<< HEAD
+   
+=======
     FileManipulationComponent,
     GraphicalInteractionComponent,
     HottextInteractionComponent,
     Graphicalinteraction12Component,
+>>>>>>> ba03e88266b6aeffebbfe4ce01185b3937c498fd
   ],
   // imports: [
   //   BrowserModule,

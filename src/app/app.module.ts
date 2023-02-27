@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +10,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { OrderinteractionComponent } from './components/orderinteraction/orderinteraction.component';
 import { AdminHoverCardComponent } from './components/admin-hover-card/admin-hover-card.component';
+import { FileManipulationComponent } from './components/file-manipulation/file-manipulation.component';
+import { GraphicalInteractionComponent } from './components/graphical-interaction/graphical-interaction.component';
+import { HottextInteractionComponent } from './components/hottext-interaction/hottext-interaction.component';
+import { Graphicalinteraction12Component } from './components/graphicalinteraction12/graphicalinteraction12.component';
 
 
 @NgModule({
@@ -17,9 +23,32 @@ import { AdminHoverCardComponent } from './components/admin-hover-card/admin-hov
     SideBarComponent,
     AdminHoverCardComponent,
     OrderinteractionComponent,
+<<<<<<< HEAD
    
+=======
+    FileManipulationComponent,
+    GraphicalInteractionComponent,
+    HottextInteractionComponent,
+    Graphicalinteraction12Component,
+>>>>>>> ba03e88266b6aeffebbfe4ce01185b3937c498fd
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  // imports: [
+  //   BrowserModule,
+  //   AppRoutingModule,
+  //   DragDropModule,
+  //   FormsModule,
+  //   RouterModule.forRoot([
+  //     { path: 'file-manipulation', component: FileManipulationComponent },
+  //     { path: 'order-interaction', component: OrderinteractionComponent },
+  //     {
+  //       path: 'graphical-interaction',
+  //       component: GraphicalInteractionComponent,
+  //     },
+  //     { path: 'hottext-interaction', component: HottextInteractionComponent },
+  //   ]),
+  // ],
+
+  imports: [BrowserModule, AppRoutingModule, FormsModule, DragDropModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,14 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 :root {
   --clr-light: #FFFFFF;
   --clr-medium: #83C5BE;
   --clr-dark: #0C747E;
   --clr-white: #fff;
+<<<<<<< HEAD
  
   
 
 
+=======
+  font-family: Roboto;
+>>>>>>> ba03e88266b6aeffebbfe4ce01185b3937c498fd
 }
 
 html, body {

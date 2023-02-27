@@ -2,12 +2,16 @@
     box-sizing: border-box;
     position: absolute;
     width: 709px;
-    height: 400px;
+    height: 380px;
     left: 380px;
     top: 150px;
     background: #FFFFFF;
     border: 3px solid #0C747E;
     border-radius: 20px;
+}
+
+.dragging {
+    cursor: move;
 }
 
 .card-header{
@@ -20,8 +24,6 @@
     border-radius: 20px 20px 0px 0px;
 }
 
-
-
 .header-title{
     font-family: 'Roboto';
     font-style: normal;
@@ -31,6 +33,33 @@
     letter-spacing: 0.5px;
     color: #FFFFFF;
     padding-left: 20px;
+}
+
+.que{
+    border-right: 0.5px solid #FFFFFF;
+    padding-right: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.5px;
+}
+
+.res{
+    border-right: 0.5px solid #FFFFFF;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 0.5px;
+}
+
+.delimg{
+    padding-left: 10px;
 }
 
 span {
@@ -64,7 +93,7 @@ span img {
     box-sizing: border-box;
     position: absolute;
     width: 304px;
-    height: 232px;
+    height: 235px;
     left: 400px;
     top: 250px;
     border: 1px solid #000000;
@@ -75,14 +104,13 @@ span img {
     box-sizing: border-box;
     position: absolute;
     width: 304px;
-    height: 232px;
+    height: 235px;
     left: 772px;
     top: 250px;
     border: 1px solid #000000;
     border-radius: 10px;
 }
 .card-bottom {
-    margin-top: 20px;
     margin-left: 380px;
     position:absolute;
     top: 550px;
@@ -150,7 +178,7 @@ span img {
     position: absolute;
     left: 80.16%;
     right: 48.91%;
-    top: 10%;
+    top: 7%;
     bottom: 59.31%;
     cursor: pointer;
 }
@@ -169,7 +197,7 @@ span img {
     position: absolute;
     width: 140px;
     height: 35px;
-    top: 150px;
+    top: 185px;
     left: -90px;
 }
 
@@ -179,7 +207,7 @@ span img {
     width: 720px;
     height: 300px;
     left: 380px;
-    top: 140px;
+    top: 160px;
     background: #FFFFFF;
     border: 3px solid #0C747E;
     border-radius: 20px;
@@ -284,15 +312,55 @@ span img {
     padding-right: 10px;
 }
 
+.list-item{
+    position: relative;
+    bottom: 20px;
+}
+
 .autosave1{
-    background: #0C747E;
-    border: 2px solid #0C747E;
-    border-radius: 10px;
     position: absolute;
     left: 1030px;
-    top: 500px;
+    height: 32px;
+    top: 490px;
     cursor: pointer;
 }
+
+.bold-text {
+    font-weight: bold;
+}
+   
+.italic-text {
+    font-style: italic;
+}
+   
+.underline-text {
+    text-decoration: underline;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.inpu{
+    width: 60%;
+}
+
+/* Style the placeholder text */
+::placeholder {
+    color: #0c747e;
+  }
+  
+  .input1::-webkit-input-placeholder {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Style the placeholder text when the input is focused */
+
 
 #saveButton {
   position: absolute;

@@ -1,57 +1,43 @@
 <!-- 1st Screen -->
-<div class="container" *ngIf="Condition1" ng-app="">
+<div class="container"  *ngIf="Condition1" ng-app="">
    <div class="card" style="width: 45rem;"></div>
    <div class="card-header">
-      <p class="header-title">ORDER-INTERACTION
-         <span>QUESTION | RESPONSE | <a type="button" (click)="dismissbox()"><img src="./assets/delete.png"></a></span>
-      </p>
+      <div class="header-title">ORDER-INTERACTION
+         <div style="display: inline-flex;position: absolute;right: 30px;">
+         <div style="display: inline-flex;" class="que"><a style="cursor: pointer;">QUESTION</a></div>
+         <div style="display: inline-flex;" class="res"><a style="cursor: pointer;">RESPONSE</a></div>
+         <a type="button" (click)="dismissbox()"><img src="./assets/delete.png" class="delimg"></a>
+         </div>
+      </div>
    </div>
    <div class="card-body">
       <div class="row mt-1">
-         <!-- <p> -->
-         <input type="text" name="inputprompt" placeholder="Define Prompt" class="prompt" ng-model="inputprompt"
-            [style]="styleOne && {'font-weight':'bold'} || styleTwo && {'font-style':'italic'} || styleThree && {'text-decoration': 'underline'} || styleFour && {'text-align':'left'} || styleFive && {'text-align':'right'}">
-         <!-- </p> -->
+         <input type="text" name="inputprompt" class="prompt" placeholder="Define prompt"
+         #text 
+         (keyup)="getValue(text.value)"
+         onfocus="this.placeholder = ''"
+         [class.bold-text]="styleBold"
+         [class.italic-text]="styleItalic"
+         [class.underline-text]="styleUnderline"
+         [style]="styleFour && {'text-align':'left'} || styleFive && {'text-align':'right'}">
       </div>
+
       <div class="left">
          <ul style="list-style-type:none;">
-            <li *ngIf="delete1">
+            <li class="list-item" *ngFor="let choice of choices;index as i">
                <img src="./assets/Icons/ellipse.png">
-               Choice 1
-               <a (click)="deleteicon1()">
-                  <img src="./assets/deletegreen.png" class="deleteicon">
-               </a>
-            </li>
-            <li *ngIf="delete2">
-               <img src="./assets/Icons/ellipse.png">
-               Choice 2
-               <a (click)="deleteicon2()">
-                  <img src="./assets/deletegreen.png" class="deleteicon">
-               </a>
-            </li>
-            <li *ngIf="delete3">
-               <img src="./assets/Icons/ellipse.png">
-               Choice 3
-               <a (click)="deleteicon3()">
-                  <img src="./assets/deletegreen.png" class="deleteicon">
-               </a>
-            </li>
-
-            <li *ngIf="delete4">
-               <img src="./assets/Icons/ellipse.png">
-               Choice 4
-               <a (click)="deleteicon4()">
-                  <img src="./assets/deletegreen.png" class="deleteicon">
-               </a>
+               <input type="text" name="inputprompt" class="inpu" placeholder="Choice{{i+1}}" [(ngModel)]="choice.text" onfocus="this.placeholder = ''">
+               <img src="./assets/deletegreen.png" class="deleteicon" (click)="deleteicon(i)">
             </li>
          </ul>
-         <a type="button" class="choice" *ngIf="choicebox" (click)="addChoice()"><img src="./assets/Icons/add.png"
-               height="12px"> Add
-            Choice</a>
+         <a type="button" class="choice" *ngIf="choicebox" (click)="addChoice()"><img src="./assets/Icons/add.png" height="12px"> Add Choice</a>
       </div>
       <div class="right">
 
       </div>
+      <a (click)="screen2()">
+         <img src="./assets/Icons/savebtn.png" class="autosave1" *ngIf="autosave" (click)="displayText()">
+      </a>
    </div>
 </div>
 
@@ -92,9 +78,9 @@
                <img src="./assets/Icons/Line 12.png" height="20px">
                <a type="button"><img src="./assets/Icons/normal.png" height="20px"></a>
                <img src="./assets/Icons/Line 7.png" height="30px">
-               <a type="button" (click)="Dash1()"><img src="./assets/Icons/dash1.png" height="20px"></a>
+               <a type="button"><img src="./assets/Icons/dash1.png" (click)="Dash1()" height="20px"></a>
                <img src="./assets/Icons/Line 12.png" height="20px">
-               <a type="button" (click)="Dash2()"><img src="./assets/Icons/dash2.png" height="20px"></a>
+               <a type="button"><img src="./assets/Icons/dash2.png" (click)="Dash2()" height="20px"></a>
                <img src="./assets/Icons/Line 12.png" height="20px">
                <a type="button"><img src="./assets/Icons/icon7.png" height="30px"></a>
                <a type="button"><img src="./assets/Icons/arrow.png" height="20px"></a>
@@ -103,20 +89,18 @@
       </div>
    </div>
 </div>
-<a (click)="screen2()">
-   <img src="./assets/Vector.png" class="autosave1" *ngIf="autosave">
-</a>
-
-<!-- <img id="saveButton" src="assets/SaveButton.png" alt="" *ngIf="savebtn"> -->
 
 
 <!-- 2nd Screen -->
-<div class="content2" *ngIf="Condition2">
+<div class="content2" *ngIf="Condition2" ng-app="">
    <div class="card-header-1">
-      <p class="header-title">ORDER-INTERACTION
-         <span>QUESTION | RESPONSE | <a type="button" (click)="invisiblebox()"><img
-                  src="./assets/delete.png"></a></span>
-      </p>
+      <div class="header-title">ORDER-INTERACTION
+         <div style="display: inline-flex;position: absolute;right: 30px;">
+         <div style="display: inline-flex;" class="que"><a style="cursor: pointer;">QUESTION</a></div>
+         <div style="display: inline-flex;" class="res"><a style="cursor: pointer;">RESPONSE</a></div>
+         <a type="button" (click)="dismissbox()"><img src="./assets/delete.png" class="delimg"></a>
+         </div>
+      </div>
    </div>
    <div class="card-body">
       <div class="row mt-1">
@@ -127,22 +111,11 @@
       </div>
       <div class="left-1">
          <ul style="list-style-type: none;">
-            <li *ngIf="choice1">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 1
+            <li *ngFor="let i of choices">
+               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle" *ngIf="imgshow && i.text">
+               {{i.text}}
             </li>
-            <li *ngIf="choice2">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 2
-            </li>
-            <li *ngIf="choice3">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 3
-            </li>
-            <li *ngIf="choice4">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 4
-            </li>
+            
          </ul>
       </div>
       <img src="./assets/Icons/arrowleft.png" class="arrowleft">
@@ -150,42 +123,32 @@
 
       </div>
       <a (click)="screen3()">
-         <img src="./assets/Vector.png" class="autosave">
+         <img src="./assets/Icons/savebtn.png" class="autosave">
       </a>
    </div>
 </div>
-<!-- 
-<img id="saveButton1" src="assets/SaveButton.png" alt="" *ngIf="savebtn1"> -->
+
+<img id="saveButton1" src="assets/SaveButton.png" alt="" *ngIf="savebtn1">
 
 <!-- 3rd Screen -->
-<div class="content2" *ngIf="Condition3">
+<div class="content2" *ngIf="Condition3"  cdkDropListGroup>
    <div class="card-header-1">
       <p class="header-title">ITEM 1
    </div>
    <div class="card-body">
       <div class="left-1">
          <ul style="list-style-type: none;">
-            <li *ngIf="choice1">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 1
-            </li>
-            <li *ngIf="choice2">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 2
-            </li>
-            <li *ngIf="choice3">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 3
-            </li>
-            <li *ngIf="choice4">
-               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle">
-               CHOICE 4
+            <li *ngFor="let i of choices" cdkDrag class="dragging" (cdkDragStarted)="onDragStarted()" (cdkDragEnded)="onDragEnded()">
+               <img src="./assets/Icons/shadedrectangle.png" class="shadedrectangle" *ngIf="imgshow && i.text">
+               {{i.text}}
             </li>
          </ul>
       </div>
       <img src="./assets/Icons/arrowleft.png" class="arrowleft">
-      <div class="right-1">
+      <div class="right-1"  cdkDropList (cdkDropListDropped)="onDrop($event)">
 
       </div>
    </div>
 </div>
+
+<img id="saveButton1" src="assets/SaveButton.png" alt="" *ngIf="savebtn1">

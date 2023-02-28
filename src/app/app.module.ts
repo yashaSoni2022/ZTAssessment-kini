@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -14,6 +13,11 @@ import { FileManipulationComponent } from './components/file-manipulation/file-m
 import { GraphicalInteractionComponent } from './components/graphical-interaction/graphical-interaction.component';
 import { HottextInteractionComponent } from './components/hottext-interaction/hottext-interaction.component';
 import { Graphicalinteraction12Component } from './components/graphicalinteraction12/graphicalinteraction12.component';
+import { MatchInteractionComponent } from './components/match-interaction/match-interaction.component';
+import { Ctm001002Component } from './components/ctm001002/ctm001002.component';
+import { ExtTextInteractionComponent } from './components/ext-text-interaction/ext-text-interaction.component';
+import { ChoiceBoxComponent } from './components/choice-box/choice-box.component';
+import { CardBoxComponent } from './components/card-box/card-box.component';
 
 
 @NgModule({
@@ -27,6 +31,11 @@ import { Graphicalinteraction12Component } from './components/graphicalinteracti
     GraphicalInteractionComponent,
     HottextInteractionComponent,
     Graphicalinteraction12Component,
+    MatchInteractionComponent,
+    Ctm001002Component,
+    ExtTextInteractionComponent,
+    ChoiceBoxComponent,
+    CardBoxComponent
   ],
   // imports: [
   //   BrowserModule,

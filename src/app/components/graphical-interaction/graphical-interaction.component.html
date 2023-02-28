@@ -1,0 +1,67 @@
+<!-- First menu: -->
+<div class="container" *ngIf="Condition1" ng-app="">
+  <h1 class="heading">Test properties</h1>
+  <label class="last-updated"
+    >Last updated on {{ datum | date : "short" }}</label
+  >
+  <div class="main-screen">
+    <table class="table">
+      <tr>
+        <td>
+          <label class="label-name">Label*</label>
+        </td>
+        <td class="table-box-cont">
+          <div class="test-box-container">
+            <label class="label-text-name">{{ file_name }}</label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label class="label-name2">Resource Identifier</label>
+        </td>
+        <td class="table-box-cont">
+          <div class="test-box-container2">
+            <label class="label-link-address">{{ link_address }}</label>
+            <a class="btn-browse">
+              <img src="./assets/Icons/resource-file.png" />
+            </a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label class="label-name3">Test model</label>
+        </td>
+        <td>
+          <div class="ellipse-icon"></div>
+          <label class="label-test-name">{{ label_test_name }}</label>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Second menu: -->
+<div class="container" *ngIf="Condition2" ng-app="">
+  <h1 class="heading4thscreen">Edit Class Test_1</h1>
+  <div class="main-screen4">
+    <table class="table">
+      <tr>
+        <td>
+          <label class="label-name">Label*</label>
+        </td>
+        <td class="table-box-cont">
+          <div class="test-box-container">
+            <label class="label-text-name">{{ file_name }}</label>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="btn-save" (click)="screen2()">
+  <a>
+    <img src="./assets/SaveButton2.png" />
+  </a>
+</div>

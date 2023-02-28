@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SideBarComponent implements OnInit {
   opened: boolean = false;
   opened_tests: boolean = false;
-  expanded:boolean=true
+  expanded:boolean=false
   expanded_tests: boolean = true;
   expandedSideBar: any;
   expandedSideBar_tests: any;
@@ -26,6 +26,7 @@ export class SideBarComponent implements OnInit {
   menu() {
     this.opened = !this.opened;
     //const expanded = document.querySelector('.expanded');
+    this.expanded=!this.expanded
 
     if (this.opened) {
       this.expandedSideBar = {

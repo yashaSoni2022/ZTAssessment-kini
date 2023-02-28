@@ -29,6 +29,10 @@ export class FileManipulationComponent {
   styleFour: boolean = false;
   styleFive: boolean = false;
   value: string = '';
+  selectedFile = {
+    name: 'No File Selected',
+  };
+
   deleteTextDecoration() {
     this.styleBold = false;
     this.styleItalic = false;

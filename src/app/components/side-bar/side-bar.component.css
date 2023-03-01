@@ -149,6 +149,18 @@ p img {
   gap: 8px;
 
 }
+.folder-item1{
+  position: relative;
+  top:30px;
+ padding-bottom: 5px;
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 2px solid #0C747E;
+  padding-top: 5px;
+  gap: 8px;
+
+}
 
 .folder{
   max-width: 26px;
@@ -168,8 +180,20 @@ p img {
   margin-right: 10px;
   max-width: 18px;
   max-height: 11px;
+  cursor: pointer;
 }
-
+.arrow-6{
+  margin-right: 10px;
+  max-width: 18px;
+  max-height: 11px;
+  cursor: pointer;
+}
+.arrow-7{
+  margin-right: 10px;
+  max-width: 18px;
+  max-height: 11px;
+  cursor: pointer;
+}
 .row1 img{
   width: 105px;
   height: 75px;
@@ -206,6 +230,15 @@ p img {
   padding: 7px;
   top: 10px;
 }
+.folderitems{
+position: relative;
+left: 120px;
+font-size: 18px;
+font-weight: 600;
+color:#0C747E;
+cursor: pointer;
+
+}
 .toggle{
   position: relative;
   top: 50px;
@@ -217,6 +250,7 @@ p img {
 }
 .toggle-1{
   position: relative;
+  top: 20px;
   min-width: 50px;
   max-width: 330px;
   height: 600px;

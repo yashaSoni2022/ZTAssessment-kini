@@ -10,14 +10,14 @@
         </div>
         <div id="body3">
             <input type="text" name="inputprompt" (focus)="Active1=1;Active2=1;" placeholder="Define Prompt"  [(ngModel)]="inputprompt" style="border: none;width: 95%;background-color: transparent;"
-                [style]="(!inputprompt.length||(!styleOne && !styleTwo && !styleThree)) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
-                || styleOne && styleTwo && inputprompt.length && styleThree && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
-                || styleOne && styleTwo && inputprompt.length  && {'font-weight':'bold','font-style':'italic'}
-                || styleOne  && inputprompt.length && styleThree &&   {'font-weight':'bold','text-decoration': 'underline'} 
-                ||  styleTwo && inputprompt.length && styleThree && {'font-style':'italic','text-decoration': 'underline'} 
-                || styleOne  && inputprompt.length  && {'font-weight':'bold'} 
-                || styleTwo && inputprompt.length  && {'font-style':'italic'} 
-                || inputprompt.length && styleThree && {'text-decoration': 'underline'}">
+                [style]="(!inputprompt.length||(!inputpromptstyle[0] && !inputpromptstyle[1] && !inputpromptstyle[2])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                || inputpromptstyle[0] && inputpromptstyle[1] && inputprompt.length && inputpromptstyle[2] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                || inputpromptstyle[0] && inputpromptstyle[1] && inputprompt.length  && {'font-weight':'bold','font-style':'italic'}
+                || inputpromptstyle[0]  && inputprompt.length && inputpromptstyle[2] &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                ||  inputpromptstyle[1] && inputprompt.length && inputpromptstyle[2] && {'font-style':'italic','text-decoration': 'underline'} 
+                || inputpromptstyle[0]  && inputprompt.length  && {'font-weight':'bold'} 
+                || inputpromptstyle[1] && inputprompt.length  && {'font-style':'italic'} 
+                || inputprompt.length && inputpromptstyle[2] && {'text-decoration': 'underline'}">
         </div>
         <div id="body4" style="overflow: auto;" (click)="Active2=2">
             <div style="min-height:fit-content !important;" *ngFor="let img of imgArea;index as k">
@@ -542,4 +542,7 @@
     </div>
 </div>
 
+<div style="position:absolute">
+    {{inputpromptstyle}}
+</div>
 

@@ -13,7 +13,7 @@
     <!-- **interactions component go here -->
     <router-outlet></router-outlet>
     <app-ctm001002 ></app-ctm001002>
-    <app-ext-text-interaction *ngIf="true"></app-ext-text-interaction>
+    <app-ext-text-interaction *ngIf="ext"></app-ext-text-interaction>
     <app-file-manipulation *ngIf="file"></app-file-manipulation>
     <div *ngIf="hide">
     <app-graphical-interaction *ngIf="screen==1"></app-graphical-interaction>
@@ -21,7 +21,7 @@
   </div>
     <app-hottext-interaction *ngIf="hot"></app-hottext-interaction>
     <app-orderinteraction *ngIf="order"></app-orderinteraction>
-    <app-match-interaction *ngIf="match"></app-match-interaction>
+    <app-match-interaction *ngIf="true"></app-match-interaction>
     <app-choice-box *ngIf="choiceI"></app-choice-box>
     <app-card-box *ngIf="gap"></app-card-box>
     <!-- <app-orderinteraction></app-orderinteraction> -->

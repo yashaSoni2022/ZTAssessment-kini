@@ -7,8 +7,9 @@
     <button class="deliveries"><img class="deliveries-img" src="assets/sideBarIcons/Deliveries.png" alt=""></button>
     <button class="results"><img class="results-img" src="assets/sideBarIcons/Results.png" alt=""></button>
   </div>
-
-  <div class="sideBar expanded" [ngStyle]="expandedSideBar" *ngIf="false">
+  <div *ngIf="pencilb">
+  <div class="sideBar expanded" [ngStyle]="expandedSideBar" *ngIf="expanded">
+   
     <ul>
       <div id="commonInteraction" >
         <p class="sideBar-headings" (click)="openCommonInteraction()">COMMON INTERACTION <img class="arrow-1"  src="../../../assets/sideBarIcons/arrow.png"></p>
@@ -21,35 +22,35 @@
             <img
               src="../../../assets/common interaction Icons/Choice.png"
               alt="Choice"
-            />
+             (click)="choice()" />
           </div>
 
           <div>
             <img
               src="../../../assets/common interaction Icons/ExtTest.png"
               alt="ExtTest"
-            />
+           (click)="external()" />
             <img
               src="../../../assets/common interaction Icons/FileUpload.png"
               alt="FileUpload"
-            />
+           (click)="fileupload()" />
           </div>
           <div>
             <img
               src="../../../assets/common interaction Icons/GapMatch.png"
               alt="GapMatch.png"
-            />
+            (click)="gapMatch()" />
             <img
               src="../../../assets/common interaction Icons/HotText.png"
               alt="HotText"
-            />
+           (click)="hottext()" />
           </div>
 
           <div>
             <img
               src="../../../assets/common interaction Icons/Match.png"
               alt="Match"
-            />
+            (click)="matchint()" />
             <img
               src="../../../assets/common interaction Icons/Media.png"
               alt="Media"
@@ -59,7 +60,7 @@
             <img
               src="../../../assets/common interaction Icons/Order.png"
               alt="Order"
-            />
+           (click)="orderint()" />
             <img
               src="../../../assets/common interaction Icons/Slider.png"
               alt="Slider"
@@ -81,18 +82,26 @@
       </div>
     </ul>
   </div>
+</div>
   
 
+<div *ngIf="pencilf">
 <div class="sideBar expanded" [ngStyle]="expandedSideBar" *ngIf="expanded">
-  
-  <div class="folder-item"><img class="folder" src="/assets/file.png"><p class="item">Item</p><img class="arrow-5" src="../../../assets/sideBarIcons/arrow.png"></div>
+ 
+  <div class="folder-item"><img class="folder" src="/assets/file.png"><p class="item">Item</p><img class="arrow-6" src="../../../assets/sideBarIcons/arrow.png"></div>
   <div class="folder-item">
     <img class="folder" src="/assets/file.png">
     <p class="item">QTI Example Test</p>
-    <img class="arrow-5"  src="../../../assets/sideBarIcons/arrow.png">
-
+    <img class="arrow-6"  src="../../../assets/sideBarIcons/arrow.png"  (click)="dropdow()" >
   </div>
+    <div class="folder-item" *ngIf="dropDown"><p class="folderitems"  (click)="folderitem()">{{val}}</p></div>
   
+  <div class="folder-item1" *ngIf="newfolder1">
+    <img class="folder" src="/assets/file.png" >
+    <p class="item">New Folder</p>
+    <img class="arrow-6"  src="../../../assets/sideBarIcons/arrow.png" *ngIf="false">
+  </div>
+  <div class="toggle-1">
   <div class="toggle">
 
     <div class="row-1" >
@@ -137,9 +146,11 @@
       </div>
 
   </div>
-  
+</div>
 
 </div>
+</div>
+
 
 <!---------------------------------Tests------------------------------------------------------------------------------------------------------>
 

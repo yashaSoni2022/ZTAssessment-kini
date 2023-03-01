@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { OrderinteractionComponent } from './components/orderinteraction/orderinteraction.component';
 import { AdminHoverCardComponent } from './components/admin-hover-card/admin-hover-card.component';
+import { SliderInteractionComponent } from './components/slider-interaction/slider-interaction.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AdminHoverCardComponent } from './components/admin-hover-card/admin-hov
     SideBarComponent,
     AdminHoverCardComponent,
     OrderinteractionComponent,
+    SliderInteractionComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule,DragDropModule],
   providers: [],

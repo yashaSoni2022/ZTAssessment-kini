@@ -1,0 +1,543 @@
+<div  *ngIf="x==1">
+    <div id="box" *ngIf="Condition2">
+        <div id="head">EXTENDED TEXT INTERACTION
+            <span style="position: absolute;right:10px;">
+                <a style="border-right:0.5px solid #FFFFFF;;height:20px;padding:5px 0px;padding-right:20px;" (click)="x=1">QUESTION</a> 
+                <a style="border-right:0.5px solid #FFFFFF;;height:20px;padding:5px 0px;padding-right:20px;" (click)="x=2">RESPONSE</a>
+            <a  type="button" (click)="dismissbox(1)"><img src="./assets/delete.png" style="position: relative;top: -2px;" height="13px"></a>
+            </span>
+        
+        </div>
+        <div id="body3">
+            <input type="text" name="inputprompt" (focus)="Active1=1;Active2=1;" placeholder="Define Prompt"  [(ngModel)]="inputprompt" style="border: none;width: 95%;background-color: transparent;"
+                [style]="(!inputprompt.length||(!inputpromptstyle[0] && !inputpromptstyle[1] && !inputpromptstyle[2])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                || inputpromptstyle[0] && inputpromptstyle[1] && inputprompt.length && inputpromptstyle[2] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                || inputpromptstyle[0] && inputpromptstyle[1] && inputprompt.length  && {'font-weight':'bold','font-style':'italic'}
+                || inputpromptstyle[0]  && inputprompt.length && inputpromptstyle[2] &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                ||  inputpromptstyle[1] && inputprompt.length && inputpromptstyle[2] && {'font-style':'italic','text-decoration': 'underline'} 
+                || inputpromptstyle[0]  && inputprompt.length  && {'font-weight':'bold'} 
+                || inputpromptstyle[1] && inputprompt.length  && {'font-style':'italic'} 
+                || inputprompt.length && inputpromptstyle[2] && {'text-decoration': 'underline'}">
+        </div>
+        <div id="body4" style="overflow: auto;" (click)="Active2=2">
+            <div style="min-height:fit-content !important;" *ngFor="let img of imgArea;index as k">
+                <table *ngIf="imgArea[k][0]=='table'" style="width:100%">
+                    <tr *ngIf="table[imgArea[k][1]].length==0" style="border:2px dotted #0C747E;">
+                        <button style="width:33%;" (click)="table[imgArea[k][1]].push([]);table[imgArea[k][1]].push([]);table[imgArea[k][1]].push([]);">1:1:1</button>
+                        <button style="width:33%;" (click)="table[imgArea[k][1]].push(['2:1']);table[imgArea[k][1]].push([]);table[imgArea[k][1]].push([]);">2:1</button>
+                        <button style="width:33%;" (click)="table[imgArea[k][1]].push(['1:2']);table[imgArea[k][1]].push([]);table[imgArea[k][1]].push([]);">1:2</button>
+                    </tr>
+                    <tr *ngIf="table[imgArea[k][1]].length==3 && table[imgArea[k][1]][0][0]=='2:1'">
+                        <td colspan="2">
+                            <textarea name="" (click)="Active1=k;Active3=1;" style="vertical-align: top;width:100%"  *ngIf="table[imgArea[k][1]][1][0]=='text'" rows="17" placeholder="Enter text" [(ngModel)]="table[imgArea[k][1]][1][1]" 
+                            [style]="(table[imgArea[k][1]][1][1].length==0||(!table[imgArea[k][1]][1][2] && !table[imgArea[k][1]][1][3] && !table[imgArea[k][1]][1][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                            || table[imgArea[k][1]][1][2] && table[imgArea[k][1]][1][3] && table[imgArea[k][1]][1][1].length!=0 && table[imgArea[k][1]][1][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][1][2] && table[imgArea[k][1]][1][3] && table[imgArea[k][1]][1][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                            || table[imgArea[k][1]][1][2]  && table[imgArea[k][1]][1][1].length!=0 && table[imgArea[k][1]][1][4] &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][1][3] && table[imgArea[k][1]][1][1].length!=0 && table[imgArea[k][1]][1][4] && {'font-style':'italic','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][1][2]  && table[imgArea[k][1]][1][1].length!=0  && {'font-weight':'bold'} 
+                            || table[imgArea[k][1]][1][3] && table[imgArea[k][1]][1][1].length!=0 && {'font-style':'italic'} 
+                            || table[imgArea[k][1]][1][1].length!=0 && table[imgArea[k][1]][1][4] && {'text-decoration': 'underline'}"></textarea>
+                            <img src="{{table[imgArea[k][1]][1][1]}}" width="100%" height="400px" *ngIf="table[imgArea[k][1]][1][0]=='img'">
+                            <video width="100%"  controls  *ngIf="table[imgArea[k][1]][1][0]=='video'">
+                                    <source src="{{table[imgArea[k][1]][1][1]}}">
+                                    Your browser does not support the video tag.
+                            </video>
+                            <div *ngIf="table[imgArea[k][1]][1].length==0" style="border:2px dotted #0C747E;padding:50px 0px;width:100%;min-height:80px;">
+                                <button style="width:100%;" (click)="table[imgArea[k][1]][1].push('img');run(imgArea[k][1],1);">img</button><br>
+                                <button style="width:100%;" (click)="table[imgArea[k][1]][1].push('text');table[imgArea[k][1]][1].push('');table[imgArea[k][1]][1].push(false);table[imgArea[k][1]][1].push(false);table[imgArea[k][1]][1].push(false);">text</button><br>
+                                <button style="width:100%;" (click)="table[imgArea[k][1]][1].push('video');run(imgArea[k][1],1)">video</button>
+                            </div>
+                            </td>
+                            <td >
+                                <textarea name="" (click)="Active1=k;Active3=2;" style="vertical-align: top;width:100%"  *ngIf="table[imgArea[k][1]][2][0]=='text'" rows="17" placeholder="Enter text" [(ngModel)]="table[imgArea[k][1]][2][1]" 
+                            [style]="(table[imgArea[k][1]][2][1].length==0||(!table[imgArea[k][1]][2][2] && !table[imgArea[k][1]][2][3] && !table[imgArea[k][1]][2][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                            || table[imgArea[k][1]][2][2] && table[imgArea[k][1]][2][3] && table[imgArea[k][1]][2][1].length!=0 && table[imgArea[k][1]][2][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][2][2] && table[imgArea[k][1]][2][3] && table[imgArea[k][1]][2][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                            || table[imgArea[k][1]][2][2]  && table[imgArea[k][1]][2][1].length!=0 && table[imgArea[k][1]][2][4] &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][2][3] && table[imgArea[k][1]][2][1].length!=0 && table[imgArea[k][1]][2][4] && {'font-style':'italic','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][2][2]  && table[imgArea[k][1]][2][1].length!=0  && {'font-weight':'bold'} 
+                            || table[imgArea[k][1]][2][3] && table[imgArea[k][1]][2][1].length!=0  && {'font-style':'italic'} 
+                            || table[imgArea[k][1]][2][1].length!=0 && table[imgArea[k][1]][2][4] && {'text-decoration': 'underline'}"></textarea>
+                            
+                                <img src="{{table[imgArea[k][1]][2][1]}}" width="100%" height="400px" *ngIf="table[imgArea[k][1]][2][0]=='img'">
+                                <video width="100%" controls  *ngIf="table[imgArea[k][1]][2][0]=='video'">
+                                        <source src="{{table[imgArea[k][1]][2][1]}}">
+                                        Your browser does not support the video tag.
+                                </video>
+                                <div *ngIf="table[imgArea[k][1]][2].length==0" style="border:2px dotted #0C747E;padding:50px 0px;width:100%;min-height:80px;">
+                                    <button style="width:100%;" (click)="table[imgArea[k][1]][2].push('img');run(imgArea[k][1],2);">img</button><br>
+                                    <button style="width:100%;" (click)="table[imgArea[k][1]][2].push('text');table[imgArea[k][1]][2].push('');table[imgArea[k][1]][2].push(false);table[imgArea[k][1]][2].push(false);table[imgArea[k][1]][2].push(false);">text</button><br>
+                                    <button style="width:100%;" (click)="table[imgArea[k][1]][2].push('video');run(imgArea[k][1],2);">video</button>
+                                </div>
+                    </td>
+        
+                    </tr>
+                    <tr *ngIf="table[imgArea[k][1]].length==3 && table[imgArea[k][1]][0][0]=='2:1'">
+                        <td></td><td></td><td></td>
+                    </tr>
+
+                    <tr *ngIf="table[imgArea[k][1]].length==3 && table[imgArea[k][1]][0][0]=='1:2'">
+                        <td>
+                            <textarea name="" (click)="Active1=k;Active3=1;" style="vertical-align: top;width:100%"  *ngIf="table[imgArea[k][1]][1][0]=='text'" rows="17" placeholder="Enter text" [(ngModel)]="table[imgArea[k][1]][1][1]" 
+                            [style]="(table[imgArea[k][1]][1][1].length==0||(!table[imgArea[k][1]][1][2] && !table[imgArea[k][1]][1][3] && !table[imgArea[k][1]][1][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                            || table[imgArea[k][1]][1][2] && table[imgArea[k][1]][1][3] && table[imgArea[k][1]][1][1].length!=0 && table[imgArea[k][1]][1][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][1][2] && table[imgArea[k][1]][1][3] && table[imgArea[k][1]][1][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                            || table[imgArea[k][1]][1][2]  && table[imgArea[k][1]][1][1].length!=0 && table[imgArea[k][1]][1][4] &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][1][3] && table[imgArea[k][1]][1][1].length!=0 && table[imgArea[k][1]][1][4] && {'font-style':'italic','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][1][2]  && table[imgArea[k][1]][1][1].length!=0  && {'font-weight':'bold'} 
+                            || table[imgArea[k][1]][1][3] && table[imgArea[k][1]][1][1].length!=0 && {'font-style':'italic'} 
+                            || table[imgArea[k][1]][1][1].length!=0 && table[imgArea[k][1]][1][4] && {'text-decoration': 'underline'}"></textarea>
+                            <img src="{{table[imgArea[k][1]][1][1]}}" width="100%" height="400px" *ngIf="table[imgArea[k][1]][1][0]=='img'">
+                            <video width="100%"  controls  *ngIf="table[imgArea[k][1]][1][0]=='video'">
+                                    <source src="{{table[imgArea[k][1]][1][1]}}">
+                                    Your browser does not support the video tag.
+                            </video>
+                            <div *ngIf="table[imgArea[k][1]][1].length==0" style="border:2px dotted #0C747E;padding:50px 0px;width:100%;min-height:80px;">
+                                <button style="width:100%;" (click)="table[imgArea[k][1]][1].push('img');run(imgArea[k][1],1);">img</button><br>
+                                <button style="width:100%;" (click)="table[imgArea[k][1]][1].push('text');table[imgArea[k][1]][1].push('');table[imgArea[k][1]][1].push(false);table[imgArea[k][1]][1].push(false);table[imgArea[k][1]][1].push(false);">text</button><br>
+                                <button style="width:100%;" (click)="table[imgArea[k][1]][1].push('video');run(imgArea[k][1],1)">video</button>
+                            </div>
+                            </td>
+                            <td  colspan="2">
+                                <textarea name="" (click)="Active1=k;Active3=2;" style="vertical-align: top;width:100%"  *ngIf="table[imgArea[k][1]][2][0]=='text'" rows="17" placeholder="Enter text" [(ngModel)]="table[imgArea[k][1]][2][1]" 
+                            [style]="(table[imgArea[k][1]][2][1].length==0||(!table[imgArea[k][1]][2][2] && !table[imgArea[k][1]][2][3] && !table[imgArea[k][1]][2][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                            || table[imgArea[k][1]][2][2] && table[imgArea[k][1]][2][3] && table[imgArea[k][1]][2][1].length!=0 && table[imgArea[k][1]][2][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][2][2] && table[imgArea[k][1]][2][3] && table[imgArea[k][1]][2][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                            || table[imgArea[k][1]][2][2]  && table[imgArea[k][1]][2][1].length!=0 && table[imgArea[k][1]][2][4] &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][2][3] && table[imgArea[k][1]][2][1].length!=0 && table[imgArea[k][1]][2][4] && {'font-style':'italic','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][2][2]  && table[imgArea[k][1]][2][1].length!=0  && {'font-weight':'bold'} 
+                            || table[imgArea[k][1]][2][3] && table[imgArea[k][1]][2][1].length!=0  && {'font-style':'italic'} 
+                            || table[imgArea[k][1]][2][1].length!=0 && table[imgArea[k][1]][2][4] && {'text-decoration': 'underline'}"></textarea>
+                            
+                                <img src="{{table[imgArea[k][1]][2][1]}}" width="100%" height="400px" *ngIf="table[imgArea[k][1]][2][0]=='img'">
+                                <video width="100%" controls  *ngIf="table[imgArea[k][1]][2][0]=='video'">
+                                        <source src="{{table[imgArea[k][1]][2][1]}}">
+                                        Your browser does not support the video tag.
+                                </video>
+                                <div *ngIf="table[imgArea[k][1]][2].length==0" style="border:2px dotted #0C747E;padding:50px 0px;width:100%;min-height:80px;">
+                                    <button style="width:100%;" (click)="table[imgArea[k][1]][2].push('img');run(imgArea[k][1],2);">img</button><br>
+                                    <button style="width:100%;" (click)="table[imgArea[k][1]][2].push('text');table[imgArea[k][1]][2].push('');table[imgArea[k][1]][2].push(false);table[imgArea[k][1]][2].push(false);table[imgArea[k][1]][2].push(false);">text</button><br>
+                                    <button style="width:100%;" (click)="table[imgArea[k][1]][2].push('video');run(imgArea[k][1],2);">video</button>
+                                </div>
+                    </td>
+        
+                    </tr>
+                    <tr *ngIf="table[imgArea[k][1]].length==3 && table[imgArea[k][1]][0][0]=='1:2'">
+                        <td></td><td></td><td></td>
+                    </tr>
+
+                    
+                    <!--1:1:1-->
+                    <tr *ngIf="table[imgArea[k][1]].length==3 && table[imgArea[k][1]][0][0]!='2:1' && table[imgArea[k][1]][0][0]!='1:2'">
+                    <td>
+                            <textarea name="" (click)="Active1=k;Active3=0;" style="vertical-align: top;width:100%"  *ngIf="table[imgArea[k][1]][0][0]=='text'" rows="17" placeholder="Enter text" [(ngModel)]="table[imgArea[k][1]][0][1]" 
+                            [style]="(table[imgArea[k][1]][0][1].length==0||(!table[imgArea[k][1]][0][2] && !table[imgArea[k][1]][0][3] && !table[imgArea[k][1]][0][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                            || table[imgArea[k][1]][0][2] && table[imgArea[k][1]][0][3] && table[imgArea[k][1]][0][1].length!=0 && table[imgArea[k][1]][0][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][0][2] && table[imgArea[k][1]][0][3] && table[imgArea[k][1]][0][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                            || table[imgArea[k][1]][0][2]  && table[imgArea[k][1]][0][1].length!=0 && table[imgArea[k][1]][0][4] &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][0][3] && table[imgArea[k][1]][0][1].length!=0 && table[imgArea[k][1]][0][4] && {'font-style':'italic','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][0][2]  && table[imgArea[k][1]][0][1].length!=0  && {'font-weight':'bold'} 
+                            || table[imgArea[k][1]][0][3] && table[imgArea[k][1]][0][1].length!=0 && {'font-style':'italic'} 
+                            || table[imgArea[k][1]][0][1].length!=0 && table[imgArea[k][1]][0][4] && {'text-decoration': 'underline'}"></textarea>
+                            <img src="{{table[imgArea[k][1]][0][1]}}" width="100%" height="400px" *ngIf="table[imgArea[k][1]][0][0]=='img'">
+                            <video width="100%"  controls  *ngIf="table[imgArea[k][1]][0][0]=='video'">
+                                    <source src="{{table[imgArea[k][1]][0][1]}}">
+                                    Your browser does not support the video tag.
+                            </video>
+                            <div *ngIf="table[imgArea[k][1]][0].length==0" style="border:2px dotted #0C747E;padding:50px 0px;width:100%;min-height:80px;">
+                                <button style="width:100%;" (click)="table[imgArea[k][1]][0].push('img');run(imgArea[k][1],0);">img</button><br>
+                                <button style="width:100%;" (click)="table[imgArea[k][1]][0].push('text');table[imgArea[k][1]][0].push('');table[imgArea[k][1]][0].push(false);table[imgArea[k][1]][0].push(false);table[imgArea[k][1]][0].push(false);">text</button><br>
+                                <button style="width:100%;" (click)="table[imgArea[k][1]][0].push('video');run(imgArea[k][1],0)">video</button>
+                            </div>
+                    </td>    
+                    <td>
+                        <textarea name="" (click)="Active1=k;Active3=1;" style="vertical-align: top;width:100%"  *ngIf="table[imgArea[k][1]][1][0]=='text'" rows="17" placeholder="Enter text" [(ngModel)]="table[imgArea[k][1]][1][1]" 
+                        [style]="(table[imgArea[k][1]][1][1].length==0||(!table[imgArea[k][1]][1][2] && !table[imgArea[k][1]][1][3] && !table[imgArea[k][1]][1][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[imgArea[k][1]][1][2] && table[imgArea[k][1]][1][3] && table[imgArea[k][1]][1][1].length!=0 && table[imgArea[k][1]][1][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[imgArea[k][1]][1][2] && table[imgArea[k][1]][1][3] && table[imgArea[k][1]][1][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[imgArea[k][1]][1][2]  && table[imgArea[k][1]][1][1].length!=0 && table[imgArea[k][1]][1][4] &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[imgArea[k][1]][1][3] && table[imgArea[k][1]][1][1].length!=0 && table[imgArea[k][1]][1][4] && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[imgArea[k][1]][1][2]  && table[imgArea[k][1]][1][1].length!=0  && {'font-weight':'bold'} 
+                        || table[imgArea[k][1]][1][3] && table[imgArea[k][1]][1][1].length!=0 && {'font-style':'italic'} 
+                        || table[imgArea[k][1]][1][1].length!=0 && table[imgArea[k][1]][1][4] && {'text-decoration': 'underline'}"></textarea>
+                        <img src="{{table[imgArea[k][1]][1][1]}}" width="100%" height="400px" *ngIf="table[imgArea[k][1]][1][0]=='img'">
+                        <video width="100%"  controls  *ngIf="table[imgArea[k][1]][1][0]=='video'">
+                                <source src="{{table[imgArea[k][1]][1][1]}}">
+                                Your browser does not support the video tag.
+                        </video>
+                        <div *ngIf="table[imgArea[k][1]][1].length==0" style="border:2px dotted #0C747E;padding:50px 0px;width:100%;min-height:80px;">
+                            <button style="width:100%;" (click)="table[imgArea[k][1]][1].push('img');run(imgArea[k][1],1);">img</button><br>
+                            <button style="width:100%;" (click)="table[imgArea[k][1]][1].push('text');table[imgArea[k][1]][1].push('');table[imgArea[k][1]][1].push(false);table[imgArea[k][1]][1].push(false);table[imgArea[k][1]][1].push(false);">text</button><br>
+                            <button style="width:100%;" (click)="table[imgArea[k][1]][1].push('video');run(imgArea[k][1],1)">video</button>
+                        </div>
+                    </td>
+                    <td>
+                                <textarea name="" (click)="Active1=k;Active3=2;" style="vertical-align: top;width:100%"  *ngIf="table[imgArea[k][1]][2][0]=='text'" rows="17" placeholder="Enter text" [(ngModel)]="table[imgArea[k][1]][2][1]" 
+                            [style]="(table[imgArea[k][1]][2][1].length==0||(!table[imgArea[k][1]][2][2] && !table[imgArea[k][1]][2][3] && !table[imgArea[k][1]][2][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                            || table[imgArea[k][1]][2][2] && table[imgArea[k][1]][2][3] && table[imgArea[k][1]][2][1].length!=0 && table[imgArea[k][1]][2][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][2][2] && table[imgArea[k][1]][2][3] && table[imgArea[k][1]][2][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                            || table[imgArea[k][1]][2][2]  && table[imgArea[k][1]][2][1].length!=0 && table[imgArea[k][1]][2][4] &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][2][3] && table[imgArea[k][1]][2][1].length!=0 && table[imgArea[k][1]][2][4] && {'font-style':'italic','text-decoration': 'underline'} 
+                            || table[imgArea[k][1]][2][2]  && table[imgArea[k][1]][2][1].length!=0  && {'font-weight':'bold'} 
+                            || table[imgArea[k][1]][2][3] && table[imgArea[k][1]][2][1].length!=0  && {'font-style':'italic'} 
+                            || table[imgArea[k][1]][2][1].length!=0 && table[imgArea[k][1]][2][4] && {'text-decoration': 'underline'}"></textarea>
+                            
+                                <img src="{{table[imgArea[k][1]][2][1]}}" width="100%" height="400px" *ngIf="table[imgArea[k][1]][2][0]=='img'">
+                                <video width="100%" controls  *ngIf="table[imgArea[k][1]][2][0]=='video'">
+                                        <source src="{{table[imgArea[k][1]][2][1]}}">
+                                        Your browser does not support the video tag.
+                                </video>
+                                <div *ngIf="table[imgArea[k][1]][2].length==0" style="border:2px dotted #0C747E;padding:50px 0px;width:100%;min-height:80px;">
+                                    <button style="width:100%;" (click)="table[imgArea[k][1]][2].push('img');run(imgArea[k][1],2);">img</button><br>
+                                    <button style="width:100%;" (click)="table[imgArea[k][1]][2].push('text');table[imgArea[k][1]][2].push('');table[imgArea[k][1]][2].push(false);table[imgArea[k][1]][2].push(false);table[imgArea[k][1]][2].push(false);">text</button><br>
+                                    <button style="width:100%;" (click)="table[imgArea[k][1]][2].push('video');run(imgArea[k][1],2);">video</button>
+                                </div>
+                    </td>
+                    </tr>
+                </table>
+                <textarea name="" (click)="Active1=k;" style="vertical-align: top;" style="resize:none;width:100%"  *ngIf="imgArea[k][0]=='text'" rows="15" placeholder="Enter text" [(ngModel)]="imgArea[k][1]" 
+                    [style]="(imgArea[k][1].length==0||(!imgArea[k][2]  && !imgArea[k][3]  && !imgArea[k][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                    || imgArea[k][2]  && imgArea[k][3] && imgArea[k][1].length!=0 && imgArea[k][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                    || imgArea[k][2] && imgArea[k][3]  && imgArea[k][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                    || imgArea[k][2]  && imgArea[k][1].length!=0 && imgArea[k][4] &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                    || imgArea[k][3] && imgArea[k][1].length!=0 && imgArea[k][4] && {'font-style':'italic','text-decoration': 'underline'} 
+                    || imgArea[k][2]  && imgArea[k][1].length!=0 && {'font-weight':'bold'} 
+                    || imgArea[k][3] && imgArea[k][1].length!=0  && {'font-style':'italic'} 
+                || imgArea[k][1].length!=0 && imgArea[k][4] && {'text-decoration': 'underline'}"></textarea>
+                <img src="{{imgArea[k][1]}}" width="100%" height="400px" *ngIf="imgArea[k][0]=='img'">
+                <video width="100%" height="400px" controls  *ngIf="imgArea[k][0]=='video'">
+                        <source src="{{imgArea[k][1]}}" >
+                        Your browser does not support the video tag.
+                </video>
+           </div>  
+        </div>
+        <img src="assets/Icons/savebtn.png" (click)="x=2" style="position:relative;float:right;margin-right: 10px;top: 5px;" width="30px">
+    </div>
+    
+    <div id="box2" *ngIf="bottomSymbol">
+       <b>EDIT TEXT</b><button style="float:right;height:fit-content;width:fit-content;padding: 0px;background-color: transparent;border: none;"><img src="./assets/Icons/cross.png" height="15px" (click)="dismiss()"></button>   <br>
+       <button  style="margin-left: 30px; margin-top:25px; margin-right: 10px; height:fit-content;width: fit-content;padding: 0px;background-color: transparent;border: none;" (click)="boldText()"><img src="./assets/Icons/bita.png" height="30px"></button>
+       <img src="./assets/Icons/Line 7.png" style="margin-right: 10px; " height="30px">
+       <button style="margin-right: 10px; height:fit-content;width: fit-content;padding: 0px;background-color: transparent;border: none;"(click)="italicText()"><img src="./assets/Icons/italic.png" height="30px"></button>
+       <img src="./assets/Icons/Line 7.png" style="margin-right: 10px; " height="30px">
+       <button style="margin-right: 10px; height:fit-content;width: fit-content;padding: 0px;background-color: transparent;border: none;"(click)="underlineText()"><img src="./assets/Icons/underline.png" height="30px"></button>
+       <img src="./assets/Icons/Line 7.png" style="margin-right: 10px; " height="30px">
+       <button style="margin-right: 10px; height:fit-content;width: fit-content;padding: 0px;background-color: transparent;border: none;"><img src="./assets/Icons/icon5.png" height="30px"></button>
+       <img src="./assets/Icons/Line 7.png" style="margin-right: 10px; " height="30px">
+       <button style="margin-right: 10px; height:fit-content;width: fit-content;padding: 0px;background-color: transparent;border: none;"><img src="./assets/Icons/icon4.png" height="30px"></button>
+       <img src="./assets/Icons/Line 7.png" style="margin-right: 10px; " height="30px">
+       <button style="margin-right: 10px; height:fit-content;width: fit-content;padding: 0px;background-color: transparent;border: none;"><img src="./assets/Icons/icon6.png" height="30px"></button>
+       <img src="./assets/Icons/Line 7.png" style="margin-right: 10px; " height="30px">
+       <button style="margin-right: 10px; height:fit-content;width: fit-content;padding: 0px;background-color: transparent;border: none;"><img src="./assets/Icons/gallery.png" (click)="media(0)" height="30px"></button>
+       <img src="./assets/Icons/Line 7.png" style="margin-right: 10px; " height="30px">
+       <button style="margin-right: 10px; height:fit-content;width: fit-content;padding: 0px;background-color: transparent;border: none;"><img src="./assets/Icons/music.png" (click)="media(1)"height="30px"></button>
+       <img src="./assets/Icons/Line 7.png" style="margin-right: 10px; " height="30px">
+       <button style="margin-right: 10px; height:fit-content;width: fit-content;padding: 0px;background-color: transparent;border: none;"><img src="./assets/Icons/icon3.png" (click)="media(2)" height="30px"></button>
+       <img src="./assets/Icons/Line 7.png" style="margin-right: 10px; " height="30px">
+       <button style="margin-right: 10px; height:fit-content;width: fit-content;padding: 0px;background-color: transparent;border: none;"><img src="./assets/Icons/icon2.png" (click)="media(3)" height="30px"></button>
+       <img src="./assets/Icons/Line 7.png" style="margin-right: 10px; " height="30px">
+       <button style="margin-right: 10px; height:fit-content;width: fit-content;padding: 0px;background-color: transparent;border: none;"><img src="./assets/Icons/icon1.png" height="30px"></button>
+    
+       
+    
+    </div>
+    
+    </div>
+<div id="box" *ngIf="x==2&&Condition1">
+    <div id="head">EXTENDED TEXT INTERACTION
+        
+            <span style="position: absolute;right:10px;">
+                <a style="border-right:0.5px solid #FFFFFF;;height:20px;padding:5px 0px;padding-right:20px;" (click)="x=1">QUESTION</a> 
+                <a  style="border-right:0.5px solid #FFFFFF;;height:20px;padding:5px 0px;padding-right:20px;" (click)="x=3">RESPONSE</a>
+            <a  type="button" (click)="dismissbox(0)"><img src="./assets/delete.png" style="position: relative;top:-2px;" height="13px"></a>
+            </span>
+            
+    </div>
+    <div id="body1">
+        <img src="assets/info.png" style="margin-right: 5px;position: relative;top:-10px" width="20px">
+        <span style="position: relative;top:-9px">Please select the correct response below</span>
+
+    </div>
+    <div  id="body2" style="overflow: auto;" >
+        <div *ngFor="let i of imgArea">
+            <h4 *ngIf="i[0]=='text'" [style]="(i[1].length==0||(!i[2]  && !i[3]  && !i[4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+            || i[2] && i[3] && i[1].length!=0  && i[4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+            || i[2] && i[3] && i[1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+            || i[2] && i[4] && i[1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+            || i[3] && i[4] && i[1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+            || i[2] && i[1].length!=0 && {'font-weight':'bold'} 
+            || i[3] && i[1].length!=0  && {'font-style':'italic'} 
+        || i[1].length!=0 && i[4] && {'text-decoration': 'underline'}">{{i[1]}}</h4>
+            <img src="{{i[1]}}" width="100%" height="400px" *ngIf="i[0]=='img'">
+            <video width="100%" height="400px" controls  *ngIf="i[0]=='video'">
+                <source src="{{i[1]}}" >
+                Your browser does not support the video tag.
+            </video>
+            <table *ngIf="i[0]=='table'">
+                <tr *ngIf="table[i[1]][0][0]!='2:1'&&table[i[1]][0][0]!='1:2'">
+                    <td>
+                        <h4 *ngIf="table[i[1]][0][0]=='text'" [style]="(table[i[1]][0][1].length==0||(!table[i[1]][0][2]  && !table[i[1]][0][3]  && !table[i[1]][0][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][0][2] && table[i[1]][0][3] && table[i[1]][0][1].length!=0  && table[i[1]][0][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][0][2] && table[i[1]][0][3] && table[i[1]][0][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][0][2] && table[i[1]][0][4] && table[i[1]][0][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][0][3] && table[i[1]][0][4] && table[i[1]][0][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][0][2] && table[i[1]][0][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][0][3] && table[i[1]][0][1].length!=0  && {'font-style':'italic'} 
+                    || table[i[1]][0][1].length!=0 && table[i[1]][0][4] && {'text-decoration': 'underline'}">{{table[i[1]][0][1]}}</h4>
+                        <img src="{{table[i[1]][0][1]}}" width="100%" height="400px" *ngIf="table[i[1]][0][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][0][0]==='video'">
+                            <source src="{{table[i[1]][0][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                    <td>
+                        <h4 *ngIf="table[i[1]][1][0]=='text'" [style]="(table[i[1]][1][1].length==0||(!table[i[1]][1][2]  && !table[i[1]][1][3]  && !table[i[1]][1][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][1][2] && table[i[1]][1][3] && table[i[1]][1][1].length!=0  && table[i[1]][1][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][1][2] && table[i[1]][1][3] && table[i[1]][1][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][1][2] && table[i[1]][1][4] && table[i[1]][1][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][1][3] && table[i[1]][1][4] && table[i[1]][1][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][1][2] && table[i[1]][1][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][1][3] && table[i[1]][1][1].length!=0  && {'font-style':'italic'} 
+                        || table[i[1]][1][1].length!=0 && table[i[1]][1][4] && {'text-decoration': 'underline'}">{{table[i[1]][1][1]}}</h4>
+                        <img src="{{table[i[1]][1][1]}}" width="100%" height="400px" *ngIf="table[i[1]][1][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][1][0]==='video'">
+                            <source src="{{table[i[1]][1][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                    <td>
+                        <h4 *ngIf="table[i[1]][2][0]=='text'" [style]="(table[i[1]][2][1].length==0||(!table[i[1]][2][2]  && !table[i[1]][2][3]  && !table[i[1]][2][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][2][2] && table[i[1]][2][3] && table[i[1]][2][1].length!=0  && table[i[1]][2][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][2][2] && table[i[1]][2][3] && table[i[1]][2][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][2][2] && table[i[1]][2][4] && table[i[1]][2][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][2][3] && table[i[1]][2][4] && table[i[1]][2][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][2][2] && table[i[1]][2][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][2][3] && table[i[1]][2][1].length!=0  && {'font-style':'italic'} 
+                        || table[i[1]][2][1].length!=0 && table[i[1]][2][4] && {'text-decoration': 'underline'}">{{table[i[1]][2][1]}}</h4>
+                        <img src="{{table[i[1]][2][1]}}" width="100%" height="400px" *ngIf="table[i[1]][2][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][2][0]==='video'">
+                            <source src="{{table[i[1]][2][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                </tr>
+                <tr *ngIf="table[i[1]][0][0]=='1:2'">
+                    <td>
+                        <h4 *ngIf="table[i[1]][1][0]=='text'" [style]="(table[i[1]][1][1].length==0||(!table[i[1]][1][2]  && !table[i[1]][1][3]  && !table[i[1]][1][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][1][2] && table[i[1]][1][3] && table[i[1]][1][1].length!=0  && table[i[1]][1][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][1][2] && table[i[1]][1][3] && table[i[1]][1][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][1][2] && table[i[1]][1][4] && table[i[1]][1][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][1][3] && table[i[1]][1][4] && table[i[1]][1][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][1][2] && table[i[1]][1][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][1][3] && table[i[1]][1][1].length!=0  && {'font-style':'italic'} 
+                        || table[i[1]][1][1].length!=0 && table[i[1]][1][4] && {'text-decoration': 'underline'}">{{table[i[1]][1][1]}}</h4>
+                        <img src="{{table[i[1]][1][1]}}" width="100%" height="400px" *ngIf="table[i[1]][1][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][1][0]==='video'">
+                            <source src="{{table[i[1]][1][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                    <td colspan="2">
+                        <h4 *ngIf="table[i[1]][2][0]=='text'" [style]="(table[i[1]][2][1].length==0||(!table[i[1]][2][2]  && !table[i[1]][2][3]  && !table[i[1]][2][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][2][2] && table[i[1]][2][3] && table[i[1]][2][1].length!=0  && table[i[1]][2][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][2][2] && table[i[1]][2][3] && table[i[1]][2][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][2][2] && table[i[1]][2][4] && table[i[1]][2][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][2][3] && table[i[1]][2][4] && table[i[1]][2][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][2][2] && table[i[1]][2][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][2][3] && table[i[1]][2][1].length!=0  && {'font-style':'italic'} 
+                        || table[i[1]][2][1].length!=0 && table[i[1]][2][4] && {'text-decoration': 'underline'}">{{table[i[1]][2][1]}}</h4>
+                        <img src="{{table[i[1]][2][1]}}" width="100%" height="400px" *ngIf="table[i[1]][2][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][2][0]==='video'">
+                            <source src="{{table[i[1]][2][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                </tr>
+                <tr *ngIf="table[i[1]][0][0]=='2:1'">
+                    <td colspan="2">
+                        <h4 *ngIf="table[i[1]][1][0]=='text'" [style]="(table[i[1]][1][1].length==0||(!table[i[1]][1][2]  && !table[i[1]][1][3]  && !table[i[1]][1][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][1][2] && table[i[1]][1][3] && table[i[1]][1][1].length!=0  && table[i[1]][1][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][1][2] && table[i[1]][1][3] && table[i[1]][1][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][1][2] && table[i[1]][1][4] && table[i[1]][1][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][1][3] && table[i[1]][1][4] && table[i[1]][1][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][1][2] && table[i[1]][1][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][1][3] && table[i[1]][1][1].length!=0  && {'font-style':'italic'} 
+                        || table[i[1]][1][1].length!=0 && table[i[1]][1][4] && {'text-decoration': 'underline'}">{{table[i[1]][1][1]}}</h4>
+                        <img src="{{table[i[1]][1][1]}}" width="100%" height="400px" *ngIf="table[i[1]][1][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][1][0]==='video'">
+                            <source src="{{table[i[1]][1][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                    <td>
+                        <h4 *ngIf="table[i[1]][2][0]=='text'" [style]="(table[i[1]][2][1].length==0||(!table[i[1]][2][2]  && !table[i[1]][2][3]  && !table[i[1]][2][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][2][2] && table[i[1]][2][3] && table[i[1]][2][1].length!=0  && table[i[1]][2][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][2][2] && table[i[1]][2][3] && table[i[1]][2][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][2][2] && table[i[1]][2][4] && table[i[1]][2][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][2][3] && table[i[1]][2][4] && table[i[1]][2][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][2][2] && table[i[1]][2][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][2][3] && table[i[1]][2][1].length!=0  && {'font-style':'italic'} 
+                        || table[i[1]][2][1].length!=0 && table[i[1]][2][4] && {'text-decoration': 'underline'}">{{table[i[1]][2][1]}}</h4>
+                        <img src="{{table[i[1]][2][1]}}" width="100%" height="400px" *ngIf="table[i[1]][2][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][2][0]==='video'">
+                            <source src="{{table[i[1]][2][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                </tr>
+                <tr *ngIf="table[i[1]][0][0]=='2:1'||table[i[1]][0][0]=='1:2'">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <img src="assets/Icons/savebtn.png" style="position:relative;float:right;margin-right: 10px;top: 5px;" width="30px" (click)="x=3">
+
+
+</div>
+
+
+<div id="box" *ngIf="x==3" >
+    <div id="head">ITEM_1
+       
+    </div>
+    <br>
+    <div style="overflow: auto;height: 285px;padding: 0px 20px; width:55vw;margin-right: 22px;">
+        <div *ngFor="let i of imgArea">
+            <h4 *ngIf="i[0]=='text'" [style]="(i[1].length==0||(!i[2]  && !i[3]  && !i[4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+            || i[2] && i[3] && i[1].length!=0  && i[4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+            || i[2] && i[3] && i[1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+            || i[2] && i[4] && i[1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+            || i[3] && i[4] && i[1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+            || i[2] && i[1].length!=0 && {'font-weight':'bold'} 
+            || i[3] && i[1].length!=0  && {'font-style':'italic'} 
+        || i[1].length!=0 && i[4] && {'text-decoration': 'underline'}">{{i[1]}}</h4>
+            <img src="{{i[1]}}" width="100%" height="400px" *ngIf="i[0]=='img'">
+            <video width="100%" height="400px" controls  *ngIf="i[0]=='video'">
+                <source src="{{i[1]}}" >
+                Your browser does not support the video tag.
+            </video>
+            <table *ngIf="i[0]=='table'">
+                <tr *ngIf="table[i[1]][0][0]!='2:1'&&table[i[1]][0][0]!='1:2'">
+                    <td>
+                        <h4 *ngIf="table[i[1]][0][0]=='text'" [style]="(table[i[1]][0][1].length==0||(!table[i[1]][0][2]  && !table[i[1]][0][3]  && !table[i[1]][0][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][0][2] && table[i[1]][0][3] && table[i[1]][0][1].length!=0  && table[i[1]][0][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][0][2] && table[i[1]][0][3] && table[i[1]][0][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][0][2] && table[i[1]][0][4] && table[i[1]][0][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][0][3] && table[i[1]][0][4] && table[i[1]][0][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][0][2] && table[i[1]][0][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][0][3] && table[i[1]][0][1].length!=0  && {'font-style':'italic'} 
+                    || table[i[1]][0][1].length!=0 && table[i[1]][0][4] && {'text-decoration': 'underline'}">{{table[i[1]][0][1]}}</h4>
+                        <img src="{{table[i[1]][0][1]}}" width="100%" height="400px" *ngIf="table[i[1]][0][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][0][0]==='video'">
+                            <source src="{{table[i[1]][0][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                    <td>
+                        <h4 *ngIf="table[i[1]][1][0]=='text'" [style]="(table[i[1]][1][1].length==0||(!table[i[1]][1][2]  && !table[i[1]][1][3]  && !table[i[1]][1][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][1][2] && table[i[1]][1][3] && table[i[1]][1][1].length!=0  && table[i[1]][1][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][1][2] && table[i[1]][1][3] && table[i[1]][1][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][1][2] && table[i[1]][1][4] && table[i[1]][1][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][1][3] && table[i[1]][1][4] && table[i[1]][1][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][1][2] && table[i[1]][1][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][1][3] && table[i[1]][1][1].length!=0  && {'font-style':'italic'} 
+                        || table[i[1]][1][1].length!=0 && table[i[1]][1][4] && {'text-decoration': 'underline'}">{{table[i[1]][1][1]}}</h4>
+                        <img src="{{table[i[1]][1][1]}}" width="100%" height="400px" *ngIf="table[i[1]][1][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][1][0]==='video'">
+                            <source src="{{table[i[1]][1][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                    <td>
+                        <h4 *ngIf="table[i[1]][2][0]=='text'" [style]="(table[i[1]][2][1].length==0||(!table[i[1]][2][2]  && !table[i[1]][2][3]  && !table[i[1]][2][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][2][2] && table[i[1]][2][3] && table[i[1]][2][1].length!=0  && table[i[1]][2][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][2][2] && table[i[1]][2][3] && table[i[1]][2][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][2][2] && table[i[1]][2][4] && table[i[1]][2][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][2][3] && table[i[1]][2][4] && table[i[1]][2][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][2][2] && table[i[1]][2][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][2][3] && table[i[1]][2][1].length!=0  && {'font-style':'italic'} 
+                        || table[i[1]][2][1].length!=0 && table[i[1]][2][4] && {'text-decoration': 'underline'}">{{table[i[1]][2][1]}}</h4>
+                        <img src="{{table[i[1]][2][1]}}" width="100%" height="400px" *ngIf="table[i[1]][2][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][2][0]==='video'">
+                            <source src="{{table[i[1]][2][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                </tr>
+                <tr *ngIf="table[i[1]][0][0]=='1:2'">
+                    <td>
+                        <h4 *ngIf="table[i[1]][1][0]=='text'" [style]="(table[i[1]][1][1].length==0||(!table[i[1]][1][2]  && !table[i[1]][1][3]  && !table[i[1]][1][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][1][2] && table[i[1]][1][3] && table[i[1]][1][1].length!=0  && table[i[1]][1][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][1][2] && table[i[1]][1][3] && table[i[1]][1][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][1][2] && table[i[1]][1][4] && table[i[1]][1][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][1][3] && table[i[1]][1][4] && table[i[1]][1][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][1][2] && table[i[1]][1][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][1][3] && table[i[1]][1][1].length!=0  && {'font-style':'italic'} 
+                        || table[i[1]][1][1].length!=0 && table[i[1]][1][4] && {'text-decoration': 'underline'}">{{table[i[1]][1][1]}}</h4>
+                        <img src="{{table[i[1]][1][1]}}" width="100%" height="400px" *ngIf="table[i[1]][1][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][1][0]==='video'">
+                            <source src="{{table[i[1]][1][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                    <td colspan="2">
+                        <h4 *ngIf="table[i[1]][2][0]=='text'" [style]="(table[i[1]][2][1].length==0||(!table[i[1]][2][2]  && !table[i[1]][2][3]  && !table[i[1]][2][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][2][2] && table[i[1]][2][3] && table[i[1]][2][1].length!=0  && table[i[1]][2][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][2][2] && table[i[1]][2][3] && table[i[1]][2][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][2][2] && table[i[1]][2][4] && table[i[1]][2][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][2][3] && table[i[1]][2][4] && table[i[1]][2][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][2][2] && table[i[1]][2][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][2][3] && table[i[1]][2][1].length!=0  && {'font-style':'italic'} 
+                        || table[i[1]][2][1].length!=0 && table[i[1]][2][4] && {'text-decoration': 'underline'}">{{table[i[1]][2][1]}}</h4>
+                        <img src="{{table[i[1]][2][1]}}" width="100%" height="400px" *ngIf="table[i[1]][2][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][2][0]==='video'">
+                            <source src="{{table[i[1]][2][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                </tr>
+                <tr *ngIf="table[i[1]][0][0]=='2:1'">
+                    <td colspan="2">
+                        <h4 *ngIf="table[i[1]][1][0]=='text'" [style]="(table[i[1]][1][1].length==0||(!table[i[1]][1][2]  && !table[i[1]][1][3]  && !table[i[1]][1][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][1][2] && table[i[1]][1][3] && table[i[1]][1][1].length!=0  && table[i[1]][1][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][1][2] && table[i[1]][1][3] && table[i[1]][1][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][1][2] && table[i[1]][1][4] && table[i[1]][1][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][1][3] && table[i[1]][1][4] && table[i[1]][1][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][1][2] && table[i[1]][1][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][1][3] && table[i[1]][1][1].length!=0  && {'font-style':'italic'} 
+                        || table[i[1]][1][1].length!=0 && table[i[1]][1][4] && {'text-decoration': 'underline'}">{{table[i[1]][1][1]}}</h4>
+                        <img src="{{table[i[1]][1][1]}}" width="100%" height="400px" *ngIf="table[i[1]][1][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][1][0]==='video'">
+                            <source src="{{table[i[1]][1][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                    <td>
+                        <h4 *ngIf="table[i[1]][2][0]=='text'" [style]="(table[i[1]][2][1].length==0||(!table[i[1]][2][2]  && !table[i[1]][2][3]  && !table[i[1]][2][4])) && {'font-weight':'normal','font-style':'normal','text-decoration':'none'}
+                        || table[i[1]][2][2] && table[i[1]][2][3] && table[i[1]][2][1].length!=0  && table[i[1]][2][4] && {'font-weight':'bold','font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][2][2] && table[i[1]][2][3] && table[i[1]][2][1].length!=0  && {'font-weight':'bold','font-style':'italic'}
+                        || table[i[1]][2][2] && table[i[1]][2][4] && table[i[1]][2][1].length!=0  &&   {'font-weight':'bold','text-decoration': 'underline'} 
+                        || table[i[1]][2][3] && table[i[1]][2][4] && table[i[1]][2][1].length!=0  && {'font-style':'italic','text-decoration': 'underline'} 
+                        || table[i[1]][2][2] && table[i[1]][2][1].length!=0 && {'font-weight':'bold'} 
+                        || table[i[1]][2][3] && table[i[1]][2][1].length!=0  && {'font-style':'italic'} 
+                        || table[i[1]][2][1].length!=0 && table[i[1]][2][4] && {'text-decoration': 'underline'}">{{table[i[1]][2][1]}}</h4>
+                        <img src="{{table[i[1]][2][1]}}" width="100%" height="400px" *ngIf="table[i[1]][2][0]=='img'" >
+                       <video width="100%" height="400px" controls  *ngIf="table[i[1]][2][0]==='video'">
+                            <source src="{{table[i[1]][2][1]}}" >
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                </tr>
+                <tr *ngIf="table[i[1]][0][0]=='2:1'||table[i[1]][0][0]=='1:2'">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

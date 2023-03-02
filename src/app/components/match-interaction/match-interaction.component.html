@@ -1,0 +1,120 @@
+   
+    <div id="box" *ngIf="Condition1">
+        <div id="head">Match INTERACTION
+            <span style="position: absolute;right:10px;">
+                <a style="border-right:0.5px solid #FFFFFF;;height:20px;padding:5px 0px;padding-right:20px;" >QUESTION</a> 
+                <a style="border-right:0.5px solid #FFFFFF;;height:20px;padding:5px 0px;padding-right:20px;" (click)="save()">RESPONSE</a>
+            <a  type="button" (click)="dismissbox(0)"><img src="./assets/delete.png" style="position: relative;top:-2px;" height="13px"></a>
+            </span>
+            
+        </div>
+        <div id="body3">
+            <input type="text" name="inputprompt" placeholder="Define Prompt" class="prompt" [(ngModel)]="inputprompt" style="border: none;background-color: transparent;">
+        </div>
+        <div id="body4">
+            <div style="overflow:scroll;width:830px;height: 245px;">
+                <tr>
+                <td> </td>
+                <td *ngFor='let i of Cindex'  style="text-align: center;">
+                <input type="text" name="inputprompt" style="width:60px;" placeholder="Choice{{i+1}}" [(ngModel)]="CtextInput[i]">
+                <button (click)="deleteicon(i)" style="padding: 0px;position:relative;top:-2px;background: transparent;border:none">
+                    <img src="./assets/deletegreen.png" width="10px">
+                 </button>
+                </td>
+            </tr>
+            <tr *ngFor='let i of Rindex'>
+                <td  style="width: 100px;">
+                    <input type="text" name="inputprompt" style="width:65px;" placeholder="Choice{{i+1}}" [(ngModel)]="textInput[i]"> 
+                    <button (click)="deleteicon(i,0)" style="padding: 0px;position:relative;top:-1px;background: transparent;border:none">
+                       <img src="./assets/deletegreen.png" width="10px">
+                    </button>
+                </td>
+                <td *ngFor='let j of Cindex' style="text-align: center;">
+                    <input type="radio" disabled  >
+                </td>
+            </tr>
+        </div>
+             <button class="choice" style="bottom: 55px;right: 14px;" *ngIf="choicebox" (click)="addChoice(0)"><img src="./assets/Icons/add.png" height="12px">Add New Row</button>
+            <button class="choice" *ngIf="choicebox" (click)="addChoice()"><img src="./assets/Icons/add.png" height="12px">Add New Column</button>
+        </div>
+        
+        <img src="assets/Icons/savebtn.png" (click)="save()" style="position:relative;float:right;margin-right: 10px;top: 5px;" width="30px">
+    </div>
+    
+
+
+<div id="box" *ngIf="Condition2">
+    <div id="head">MATCH INTERACTION
+        <span style="position: absolute;right:10px;">
+        <a style="border-right:0.5px solid #FFFFFF;;height:20px;padding:5px 0px;padding-right:20px;" (click)="Condition1=true;Condition2=false;">QUESTION</a> 
+        <a style="border-right:0.5px solid #FFFFFF;;height:20px;padding:5px 0px;padding-right:20px;" (click)="Condition1=false;Condition2=false;Condition3=true;">RESPONSE</a>
+        <a  type="button" (click)="dismissbox(1)"><img src="./assets/delete.png" style="position: relative;top: -2px;" height="13px"></a>
+        </span>
+        
+
+    </div>
+    <div id="body1">
+        <img src="assets/info.png" style="margin-right: 5px;position: relative;top:-10px" width="20px">
+        <span style="position: relative;top:-9px">Please select the correct response below</span>
+
+    </div>
+    <div id="body1">
+        <img src="assets/info.png" style="margin-right: 5px;position: relative;top:-10px" width="20px">
+        <span style="position: relative;top:-9px">You must select 0 to {{Rindex.length*Cindex.length}} choices</span>
+
+    </div>
+    <div id="body2" style="position: relative;">
+        <div style="overflow:scroll;width:830px;height: 155px;">
+            <tr>
+            <td> </td>
+            <td *ngFor='let i of Cindex'  style="width:fit-content;padding-right: 10px;text-align: center;">
+            {{CtextInput[i]}}
+            </td>
+        </tr>
+        <tr *ngFor='let i of Rindex'>
+            <td  style="width:fit-content;padding-right: 10px;">
+                {{textInput[i]}}
+            </td> 
+            <td *ngFor='let j of Cindex' style="text-align: center;">
+                <button *ngIf="!arr[i][j]"  (click)="Changearr(i,j)" style="border:2px solid #0C747E;width:15px;height:15px;border-radius:7.5px;"></button>
+                <button style="border:2px solid #0C747E;background-image:radial-gradient(#0C747E, white);width:15px;height:15px;border-radius:7.5px;" *ngIf="arr[i][j]" (click)="Changearr(i,j)" ></button>
+            </td>
+        </tr>
+    </div>
+    </div>
+    <img src="assets/Icons/savebtn.png" style="position:relative;float:right;margin-right: 10px;top: 5px;" width="30px" (click)="Condition2=false;Condition3=true;">    
+</div>
+
+<!-- 
+<span style="position:absolute;top:50px;left:25px">
+    <span  *ngFor="let i of arr;index as k1;">
+       <span style="margin-left: 80px;"  *ngFor="let j of i;index as k2;" ><button *ngIf="!arr[k1][k2]"  (click)="Changearr(k1,k2)" style="border:2px solid #0C747E;width:15px;height:15px;border-radius:7.5px;"></button><button style="border:2px solid #0C747E;background-image:radial-gradient(#0C747E, white);width:15px;height:15px;border-radius:7.5px;" *ngIf="arr[k1][k2]" (click)="Changearr(k1,k2)" ></button></span><br>
+    </span></span> -->
+
+
+<div id="box" *ngIf="Condition3" style="height:248px">
+    <div id="head">ITEM 2
+    </div>
+    <br>
+    <div style="overflow:scroll;width:830px;height: 200px;margin-left: 10px;">
+        <tr>
+        <td> </td>
+        <td *ngFor='let i of Cindex'  style="width:fit-content;padding-right: 10px;text-align: center;">
+        {{CtextInput[i]}}
+        </td>
+    </tr>
+    <tr *ngFor='let i of Rindex'>
+        <td  style="width:fit-content;padding-right: 10px;">
+            {{textInput[i]}}
+        </td>
+            
+
+        <td *ngFor='let j of Cindex' style="text-align: center;">
+            <button *ngIf="!arr[i][j]" (click)="Changearr(i,j)" style="border:2px solid #0C747E;width:15px;height:15px;border-radius:7.5px;"></button>
+            <button  *ngIf="arr[i][j]" (click)="Changearr(i,j)" style="border:2px solid #0C747E;width:15px;height:15px;border-radius:7.5px;background-image:radial-gradient(#0C747E, white);" ></button>
+        </td>
+    </tr>
+</div>
+
+</div>
+

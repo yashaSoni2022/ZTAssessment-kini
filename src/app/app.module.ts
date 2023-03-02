@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { OrderinteractionComponent } from './components/orderinteraction/orderinteraction.component';
 import { AdminHoverCardComponent } from './components/admin-hover-card/admin-hover-card.component';
+
+import { SliderInteractionComponent } from './components/slider-interaction/slider-interaction.component';
 import { FileManipulationComponent } from './components/file-manipulation/file-manipulation.component';
 import { GraphicalInteractionComponent } from './components/graphical-interaction/graphical-interaction.component';
 import { HottextInteractionComponent } from './components/hottext-interaction/hottext-interaction.component';
@@ -27,6 +29,7 @@ import { CardBoxComponent } from './components/card-box/card-box.component';
     SideBarComponent,
     AdminHoverCardComponent,
     OrderinteractionComponent,
+    SliderInteractionComponent,
     FileManipulationComponent,
     GraphicalInteractionComponent,
     HottextInteractionComponent,
@@ -36,7 +39,8 @@ import { CardBoxComponent } from './components/card-box/card-box.component';
     ExtTextInteractionComponent,
     ChoiceBoxComponent,
     CardBoxComponent
-  ],
+    ]
+,
   // imports: [
   //   BrowserModule,
   //   AppRoutingModule,
@@ -57,4 +61,5 @@ import { CardBoxComponent } from './components/card-box/card-box.component';
   providers: [],
   bootstrap: [AppComponent],
 })
+export class AppModule {}
 export class AppModule {}

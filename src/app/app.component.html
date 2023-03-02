@@ -11,31 +11,42 @@
     <app-header></app-header>
     <app-side-bar></app-side-bar>
     <!-- **interactions component go here -->
-
-    <!-- <router-outlet></router-outlet> -->
-    <!-- <app-graphicalinteraction12></app-graphicalinteraction12> -->
-    <app-orderinteraction></app-orderinteraction>
+    <router-outlet></router-outlet>
+    <app-ctm001002 ></app-ctm001002>
+    <app-ext-text-interaction *ngIf="ext"></app-ext-text-interaction>
+    <app-file-manipulation *ngIf="file"></app-file-manipulation>
+    <div *ngIf="hide">
+    <app-graphical-interaction *ngIf="screen==1"></app-graphical-interaction>
+    <app-graphicalinteraction12 *ngIf="screen==2"></app-graphicalinteraction12>
+  </div>
+    <app-hottext-interaction *ngIf="hot"></app-hottext-interaction>
+    <app-orderinteraction *ngIf="order"></app-orderinteraction>
+    <app-match-interaction *ngIf="true"></app-match-interaction>
+    <app-choice-box *ngIf="choiceI"></app-choice-box>
+    <app-card-box *ngIf="gap"></app-card-box>
+    <!-- <app-orderinteraction></app-orderinteraction> -->
     <!-- <app-file-manipulation></app-file-manipulation> -->
     <!-- <app-graphical-interaction></app-graphical-interaction> -->
     <!-- <app-hottext-interaction></app-hottext-interaction> -->
-   <!-- <app-choice-box></app-choice-box> -->
-   <!-- <app-card-box></app-card-box> -->
- 
-  <!-- interactions component go here  -->
-  <div class="options-container">
-    <div id="printViewBurger">
-      <div>
-        <img class="options" src="assets/view.png" alt="">
-        <img class="options" src="assets/printer.png" alt="">
-        <img (click)="openBurgerMenu()" class="options" src="assets/burger.png" alt="">
+    <!-- interactions component go here  -->
+    <div class="options-container">
+      <div id="printViewBurger">
+        <div class="">
+          <img class="options" src="assets/view.png" (click)="hid()" alt="" />
+          <img class="options" src="assets/printer.png" alt="" hidden>
+          <img class="options1" (click)="pencil()" src="/assets/pencil.png" alt="">
+          <img class="options" src="/assets/time.png" alt="">
+          <img
+            (click)="openBurgerMenu()"
+            class="options"
+            src="assets/burger.png"
+            alt=""
+          hidden/>
+        </div>
+
         <app-admin-hover-card></app-admin-hover-card>
       </div>
     </div>
-  </div>
-    <img id="saveButton" src="assets/SaveButton.png" alt="">
+    <img id="saveButton" src="assets/SaveButton.png" alt="" (click)="screen==1?screen=2:(screen==2)">
   </body>
 </html>
-
-
-
-

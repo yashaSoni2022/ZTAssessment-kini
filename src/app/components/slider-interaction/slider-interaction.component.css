@@ -5,7 +5,7 @@ position: absolute;
 width: 655px;
 height: 300px;
 right: 15rem;
-top: 10rem;
+top: 15rem;
 background: #FFFFFF;
 border: 3px solid #0C747E;
 border-radius: 20px;
@@ -17,7 +17,7 @@ position: absolute;
 width: 655px;
 height: 300px;
 right: 15rem;
-top: 10rem;
+top: 15rem;
 background: #FFFFFF;
 border: 3px solid #0C747E;
 border-radius: 20px;
@@ -35,60 +35,60 @@ border-radius: 20px;
     border-top-right-radius: 16px;
     background-color:  #0C747E;
     font-family: 'Roboto';
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 32px;
-/* identical to box height, or 200% */
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+   /* identical to box height, or 200% */
 
-letter-spacing: 0.5px;
-
-color: #FFFFFF;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
 }
 a{
     font-family: 'Roboto';
+    justify-content: center;
     float: right;
     margin-right: 12px;
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-text-decoration: none;
-/* or 267% */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    text-decoration: none;
+    /* or 267% */
 
-letter-spacing: 0.5px;
+    letter-spacing: 0.5px;
 
-color: #FFFFFF;
+    color: #FFFFFF;
 }
 #body1{
     border: 3px solid #095057;
-padding:  17px 20px;
+    padding:  17px 20px;
     width: 535px;
-height: 4px; 
-margin-top: 15px;
-margin-left: 22px;
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 28px;
-/* identical to box height, or 178% */
+    height: 4px; 
+    margin-top: 15px;
+    margin-left: 22px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    /* identical to box height, or 178% */
 
-letter-spacing: 0.5px;
+    letter-spacing: 0.5px;
 
-color: #83C5BE;
+    color: #83C5BE;
 }
 #body2{ 
-padding:  10px 10px;
-margin-top: 25px;
-margin-left: 22px;
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 300;
-font-size: 16px;
-line-height: 150%;
-align-items: center;
-letter-spacing: 0.05em;
-color: #000000;
+    padding:  10px 10px;
+    margin-top: 25px;    
+    margin-left: 22px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    align-items: center;
+    letter-spacing: 0.05em;
+    color: #000000;    
 }
 p{
     width: 127px;
@@ -110,21 +110,21 @@ p{
 #body-1{
     border: 3px dotted #0C747E;
     border-radius: 15px;
-padding:  15px 20px;
+    padding:  15px 20px;
     width: 535px;
-height: 12px; 
-margin-top: 19px;
-margin-left: 22px;
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height:0px;
-/* identical to box height, or 178% */
+    height: 14px; 
+    margin-top: 19px;
+    margin-left: 22px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height:0px;
+    /* identical to box height, or 178% */
 
-letter-spacing: 0.5px;
+    letter-spacing: 0.5px;
 
-color: #0C747E;
+    color: #0C747E;
 }
 #body-1 {
   display: flex;
@@ -146,14 +146,14 @@ h5{
     font-weight: 400;
     font-size: 20px;
     line-height: 30px;
-/* identical to box height, or 178% */
+   /* identical to box height, or 178% */
     letter-spacing: 0.5px;
      color: #0C747E;
 }
 .slider-container {
     position: relative;
     height: 40px;
-    margin: 20px;
+    margin: 22px;
   }
   
   .slider {
@@ -181,7 +181,7 @@ h5{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 16px;
 
   }
   .slider-container{
@@ -190,7 +190,7 @@ h5{
   }
   .slider-label {
     display: inline-block;
-    margin-top: 2px;
+    margin-top: 3px;
     width: 30px;
     text-align: center;
     font-size: 14px;

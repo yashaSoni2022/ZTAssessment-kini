@@ -20,6 +20,7 @@ import { Ctm001002Component } from './components/ctm001002/ctm001002.component';
 import { ExtTextInteractionComponent } from './components/ext-text-interaction/ext-text-interaction.component';
 import { ChoiceBoxComponent } from './components/choice-box/choice-box.component';
 import { CardBoxComponent } from './components/card-box/card-box.component';
+import { AssociateInteractionComponent } from './associate-interaction/associate-interaction.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { CardBoxComponent } from './components/card-box/card-box.component';
     Ctm001002Component,
     ExtTextInteractionComponent,
     ChoiceBoxComponent,
-    CardBoxComponent
+    CardBoxComponent,
+    AssociateInteractionComponent
     ]
 ,
   // imports: [
@@ -61,5 +63,4 @@ import { CardBoxComponent } from './components/card-box/card-box.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
 export class AppModule {}

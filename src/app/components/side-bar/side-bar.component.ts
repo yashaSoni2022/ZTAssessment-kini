@@ -48,8 +48,8 @@ export class SideBarComponent implements OnInit {
     private service11:OnserviceService,
     private service12:OnserviceService,
     private service13:OnserviceService,
-    
     ) {}
+    content3: any =  new Array(7); 
 
   ngOnInit() {
    
@@ -60,9 +60,10 @@ export class SideBarComponent implements OnInit {
       this.pencilf=x
       
     })
- 
+ for (let p = 0; p < this.content3.length; p++)this.content3[p]=false;
     
-  }
+  
+}
 
   menu() {
     this.opened = !this.opened;
@@ -264,5 +265,10 @@ export class SideBarComponent implements OnInit {
     this.choiceI=false
     this.service7.subject7.next(this.choiceI)
   }
- 
+  update(val:number,text=""){//nikhil
+    console.log(this.content3);
+      if(this.content3[val]==false)this.content3[val]=text;
+      else this.content3[val]=false
+      this.service1.check.next(this.content3);
+   }
 }

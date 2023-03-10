@@ -22,4 +22,5 @@ val!:any
   public subject11=new BehaviorSubject<Boolean>(false)
   public subject12=new BehaviorSubject<Boolean>(false)
   public subject13=new BehaviorSubject<Boolean>(false)
+  public check=new BehaviorSubject<any>([])
 }

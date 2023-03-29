@@ -24,6 +24,15 @@ export class SideBarComponent implements OnInit {
   dropDown:boolean=false
   newfolder1:boolean=false
   val!:string
+  val1!:string
+  val2!:string
+  val3!:string
+  val4!:string
+  val5!:string
+  val6!:string
+  val7!:string
+  val8!:string
+  val9!:string
   editItem:boolean=false
   pencilb:boolean=false
   pencilf:boolean=true
@@ -136,12 +145,22 @@ export class SideBarComponent implements OnInit {
 
   }
   drop(){
-    this.dropp=!this.dropp
+    this.dropp=!this.drop
 
   }
   dropdow(){
     this.dropDown=!this.dropDown
-    this.val="Choclate factory"
+    this.val="Associate Things"
+    this.val1="Characters and Pl...."
+    this.val2="Elections in the U..."
+    this.val3="Identifying Sente...."
+    this.val4="Modal Feedback"
+    this.val5="Modal Feedback"
+    this.val6="Periods of History"
+    this.val7="Richard III (Take 2)"
+    this.val8="The Space Shuttle, 30 years of adventure"
+    this.val9="U K Airports (Take 1)"
+
    
   }
   folderitem(){

@@ -1,4 +1,4 @@
-<!-- 1st Screen -->
+n<!-- 1st Screen -->
 <div class="container" *ngIf="Condition1" ng-app="">
     <div class="card" style="width: 45rem;"></div>
     <div class="card-header">
@@ -11,7 +11,7 @@
           <div class="choice-box">
              <div *ngFor='let item of choices;let i = index'>
                 <input type="radio" [checked]="item.selected"  (change)="radioChecked(item.id)">
-                <input type="text" value='{{item.name}}' />
+                <input class="choice-style" type="text" value='{{item.name}}' />
                 <span (click)="deleteChoice(item.id)" class="trash-span"><img src="assets/deletegreen.png"
                       class="trash-icon" alt=""></span>
              </div>

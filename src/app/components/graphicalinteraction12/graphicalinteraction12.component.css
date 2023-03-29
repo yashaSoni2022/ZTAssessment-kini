@@ -131,10 +131,10 @@
     background: #0C747E;     
   }  
   ::-webkit-scrollbar-button{display: block;background-repeat: no-repeat;background-size:18px;background-position: right;}
-  ::-webkit-scrollbar-button:vertical:start:decrement{background-image: url('up.png');}
+  /* ::-webkit-scrollbar-button:vertical:start:decrement{background-image: url('up.png');} */
   ::-webkit-scrollbar-button:vertical:start:increment{display: none;}
   ::-webkit-scrollbar-button:vertical:end:decrement{display: none;}
-  ::-webkit-scrollbar-button:vertical:end:increment{background-image: url('down.png');}
+  /* ::-webkit-scrollbar-button:vertical:end:increment{background-image: url('down.png');} */
   
   .icons{
     width: 30px;

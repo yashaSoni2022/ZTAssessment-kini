@@ -1,0 +1,102 @@
+
+<!-- 1st Screen -->
+<div class= "heading-class">
+   <h1 class="Move-text">MOVE TO</h1>
+
+<div class="container" *ngIf="Condition1" ng-app="">
+    <div class="card"  style="width: 45rem;">
+      <h5 class="card-class"> SELECT A DESTINATION</h5>
+      
+   </div>
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+       <div class="border-box">
+         <img src="assets\ic_round-arrow-right.png">
+         <img src="assets\file-copy-rounded.jpg">
+         <p class="item-class">ITEM</p>
+        <div class="left-icon">
+            <img src="assets\file-copy-rounded.jpg">
+            <span>QTI EXAMPLE TEST</span>
+        </div> 
+       </div>
+       <a (click)="screen2()" class="save-btn">
+          <img src="assets/Icons/savebtn.png">
+       </a>
+    </div>
+ </div>
+ </div>
+ 
+ <!-- Symbols -->
+ <div class="cardBottomBox" *ngIf="bottomSymbol">
+   <div class="card-bottom" style="width: 45rem;">
+      <div class="card-body">
+         <div class="text-icons">
+            <p class="texts">
+               <span>
+                  <a type="button"><img src="assets/Icons/cross.png" height="12px" id="cross" (click)="dismiss()"></a>
+               </span><br>
+               EDIT TEXT
+            </p>
+
+            <div class="symbol">
+               <a type="button" (click)="boldText()"><img src="./assets/Icons/bita.png" height="20px"></a>
+               <img src="./assets/Icons/Line 12.png" height="20px">
+               <a type="button" (click)="italicText()"><img src="./assets/Icons/italic.png" height="20px"></a>
+               <img src="./assets/Icons/Line 12.png" height="20px">
+               <a type="button" (click)="underlineText()"><img src="./assets/Icons/underline.png" height="20px"></a>
+               <img src="./assets/Icons/Line 12.png" height="20px">
+               <a type="button"><img src="./assets/Icons/icon5.png" height="20px"></a>
+               <img src="./assets/Icons/Line 12.png" height="20px">
+               <a type="button"><img src="./assets/Icons/icon4.png" height="20px"></a>
+               <img src="./assets/Icons/Line 7.png" height="30px">
+               <a type="button"><img src="./assets/Icons/icon6.png" height="20px"></a>
+               <img src="./assets/Icons/Line 12.png" height="20px">
+               <a type="button"><img src="./assets/Icons/gallery.png" height="20px"></a>
+               <img src="./assets/Icons/Line 12.png" height="20px">
+               <a type="button"><img src="./assets/Icons/music.png" height="20px"></a>
+               <img src="./assets/Icons/Line 12.png" height="20px">
+               <a type="button"><img src="./assets/Icons/icon3.png" height="20px"></a>
+               <img src="./assets/Icons/Line 12.png" height="20px">
+               <a type="button"><img src="./assets/Icons/icon2.png" height="20px"></a>
+               <img src="./assets/Icons/Line 7.png" height="30px">
+               <a type="button"><img src="./assets/Icons/icon1.png" height="20px"></a>
+               <img src="./assets/Icons/Line 12.png" height="20px">
+               <a type="button"><img src="./assets/Icons/normal.png" height="20px"></a>
+               <img src="./assets/Icons/Line 7.png" height="30px">
+               <a type="button"><img src="./assets/Icons/dash1.png" (click)="Dash1()" height="20px"></a>
+               <img src="./assets/Icons/Line 12.png" height="20px">
+               <a type="button"><img src="./assets/Icons/dash2.png" (click)="Dash2()" height="20px"></a>
+               <img src="./assets/Icons/Line 12.png" height="20px">
+               <a type="button"><img src="./assets/Icons/icon7.png" height="30px"></a>
+               <a type="button"><img src="./assets/Icons/arrow.png" height="20px"></a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+ 
+
+ 
+ 
+ <!-- 2nd Screen -->
+ <div class="content2" *ngIf="Condition2" ng-app="">
+    <div class="card-header-1">
+      <div class="card-body">
+         <div class="border-box1">
+           <img src="assets\ic_round-arrow-right.png">
+           <img src="assets\file-copy-rounded.jpg">
+           <p class="item-class">ITEM</p>
+          <div class="left-icon">
+              <img src="assets\file-copy-rounded.jpg">
+              <span>QTI EXAMPLE TEST</span>
+          </div> 
+         </div>
+    </div>
+    </div>
+ </div>
+ 
+ 
+ 
+ 
+ 

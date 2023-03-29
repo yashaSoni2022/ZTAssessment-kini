@@ -21,6 +21,7 @@ import { ExtTextInteractionComponent } from './components/ext-text-interaction/e
 import { ChoiceBoxComponent } from './components/choice-box/choice-box.component';
 import { CardBoxComponent } from './components/card-box/card-box.component';
 import { AssociateInteractionComponent } from './associate-interaction/associate-interaction.component';
+import { Move1Component } from './move1/move1.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AssociateInteractionComponent } from './associate-interaction/associate
     ExtTextInteractionComponent,
     ChoiceBoxComponent,
     CardBoxComponent,
-    AssociateInteractionComponent
+    AssociateInteractionComponent,
+    Move1Component
     ]
 ,
   // imports: [

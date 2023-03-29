@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-associate-interaction',
-  templateUrl: './associate-interaction.component.html',
-  styleUrls: ['./associate-interaction.component.css']
+  selector: 'app-move1',
+  templateUrl: './move1.component.html',
+  styleUrls: ['./move1.component.css']
 })
-export class AssociateInteractionComponent {
+export class Move1Component {
   savebtn: boolean = true;
   savebtn1: boolean = false;
   Condition1: boolean = true;
@@ -195,3 +195,7 @@ export class AssociateInteractionComponent {
     });
   }
 }
+
+
+
+
